@@ -1,12 +1,5 @@
-# Node
 node_modules/
 dist/
-test/unit/coverage/
+test/coverage/
 package-lock.json*
-*.log*
-.stylelintcache
-.cache
-
-# Hugo
-content/drafts/
-public
+*.log

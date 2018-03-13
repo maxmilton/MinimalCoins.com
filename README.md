@@ -1,28 +1,16 @@
-# MaxMilton.com
+<!-- markdownlint-disable first-line-h1 -->
 
-Source for the website of Max Milton — <https://maxmilton.com>.
+[![Build status](https://img.shields.io/travis/MaxMilton/MinimalCoins.com.svg)](https://travis-ci.org/MaxMilton/MinimalCoins.com)
+[![Coverage status](https://img.shields.io/codecov/c/github/MaxMilton/MinimalCoins.com.svg)](https://codecov.io/gh/MaxMilton/MinimalCoins.com)
+[![Licence](https://img.shields.io/github/l/MaxMilton/MinimalCoins.com.svg)](https://github.com/MaxMilton/MinimalCoins.com/blob/master/LICENCE)
 
-## Overview
+# MinimalCoins.com
 
-TODO
-
-## Usage
-
-TODO
-
-## Writing style guide
-
-See [content/styleguide.md](https://github.com/MaxMilton/MaxMilton.com/blob/master/content/styleguide.md).
-
-## Changelog
-
-See [CHANGELOG.md](https://github.com/MaxMilton/MaxMilton.com/blob/master/CHANGELOG.md).
+TODO: Write me.
 
 ## Licence
 
-Blog content licensed under the Creative Commons Attribution No Derivatives 4.0 ([CC-BY-ND-4.0](http://creativecommons.org/licenses/by-nd/4.0/legalcode)) licence. When quoting my posts, please link back to the original article.
-
-All code is licensed Apache-2.0, see [LICENCE](https://github.com/MaxMilton/MaxMilton.com/blob/master/LICENSE).
+The [minimalcoins.com](https://minimalcoins.com) site is an MIT licensed open source project. See [LICENCE](https://github.com/MaxMilton/MinimalCoins.com/blob/master/LICENCE).
 
 ## Author
 
