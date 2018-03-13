@@ -2,7 +2,7 @@
 
 [![Build status](https://img.shields.io/travis/MaxMilton/MinimalCoins.com.svg)](https://travis-ci.org/MaxMilton/MinimalCoins.com)
 [![Coverage status](https://img.shields.io/codecov/c/github/MaxMilton/MinimalCoins.com.svg)](https://codecov.io/gh/MaxMilton/MinimalCoins.com)
-[![Licence](https://img.shields.io/github/licence/MaxMilton/MinimalCoins.com.svg)](https://github.com/MaxMilton/MinimalCoins.com/blob/master/LICENCE)
+[![Licence](https://img.shields.io/github/license/MaxMilton/MinimalCoins.com.svg)](https://github.com/MaxMilton/MinimalCoins.com/blob/master/LICENCE)
 
 # MinimalCoins.com
 
