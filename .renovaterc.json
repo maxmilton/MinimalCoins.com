@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "prHourlyLimit": 10,
+  "baseBranches": [
+    "master",
+    "legacy-2017"
+  ]
+}
