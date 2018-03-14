@@ -42,7 +42,7 @@ export default (state, actions) => (
     <p><sup>*2</sup> Number of trades in the last 24 hours.</p>
 
     <footer class="footer con tc">
-      © <a href="https://minimalcoins.com" class="inherit">MinimalCoins.com</a> | <a href="https://github.com/MaxMilton/MinimalCoins.com" class="inherit" rel="noopener">Source on GitHub</a>
+      © <a href="https://maxmilton.com" class="inherit">Max Milton</a> | <a href="https://github.com/MaxMilton/MinimalCoins.com" class="inherit" rel="noopener">Source on GitHub</a>
     </footer>
 
     {/* <code>
