@@ -1,6 +1,8 @@
 import { app } from 'hyperapp';
 import { state, actions } from './store';
 import view from './App';
-import './css';
+import './css'; // tslint:disable-line:no-import-side-effect
 
-app(state, actions, view, document.body);
+const main = app(state, actions, view, document.body);
+
+main.__init();

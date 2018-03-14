@@ -13,4 +13,7 @@ module.exports = {
   env: {
     browser: true,
   },
+  rules: {
+    'function-paren-newline': ['error', 'consistent'],
+  },
 };

@@ -9,6 +9,7 @@
   "author": "Max Milton <max@wearegenki.com>",
   "license": "MIT",
   "scripts": {
+    "predev": "yarn clean && yarn static",
     "dev": "APP_RELEASE=$(git describe --always --dirty=\"-dev\") NODE_ENV=development rollup -c --watch",
     "run": "OVERRIDE_ENV=development yarn build && testserver dist",
     "__run": "yarn build && testserver dist",
