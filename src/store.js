@@ -24,5 +24,5 @@ export const actions = {
     };
   },
   __updateData: value => () => ({ __data: value }),
-  __setFilter: value => state => ({ __filter: value.target.value }),
+  __setFilter: value => () => ({ __filter: value.target.value }),
 };

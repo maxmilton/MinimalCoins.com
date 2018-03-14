@@ -1,8 +1,9 @@
+/* eslint-disable max-len */
 /* tslint:disable:max-line-length */
 
 import { h } from 'hyperapp'; // eslint-disable-line no-unused-vars
 
-const TickerItem = ({ s, w, p, n }) => (
+const TickerItem = ({ s, w, p, n }) => ( // eslint-disable-line no-unused-vars
   <tr>
     <td>{s}</td>
     <td class={p > 0 ? 'green' : 'red'}>${w}</td>
