@@ -34,7 +34,7 @@
     "browser-sync": "2.23.6",
     "codecov": "3.0.0",
     "connect-history-api-fallback": "1.5.0",
-    "eslint": "4.18.2",
+    "eslint": "4.19.0",
     "jest": "22.4.2",
     "postcss": "6.0.20",
     "rollup": "0.57.1",
