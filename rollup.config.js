@@ -5,6 +5,7 @@ import historyApiFallback from 'connect-history-api-fallback';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import uglify from 'rollup-plugin-uglify';
+import purgecss from 'rollup-plugin-purgecss';
 
 const bs = browserSync.create();
 
@@ -21,14 +22,15 @@ const uglifyOpts = {
     unsafe: true,
     unsafe_proto: true,
   },
-  mangle: {
-    properties: {
-      // Bad patterns: children, pathname, previous
-      // Suspect: nodeName
-      regex: /^(__.*|state|actions|attributes|isExact|exact|subscribe|detail|params|render|oncreate|onupdate|onremove|ondestroy|nodeName)$/,
-      // debug: 'XX',
-    },
-  },
+  // FIXME: Redo this as which props are safe to mangle has changed between releases
+  // mangle: {
+  //   properties: {
+  //     // Bad patterns: children, pathname, previous
+  //     // Suspect: nodeName
+  //     // regex: /^(__.*|state|actions|attributes|isExact|exact|subscribe|detail|params|render|oncreate|onupdate|onremove|ondestroy|nodeName)$/,
+  //     // debug: 'XX',
+  //   },
+  // },
   output: {
     comments: !!process.env.DEBUG,
     wrap_iife: true,
@@ -86,13 +88,16 @@ export default {
 
     // PRODUCTION
     isProduction && uglify(uglifyOpts),
+    // FIXME: PurgeCSS plugin is not working
+    // isProduction && purgecss({
+    //   content: ['index.html'],
+    // }),
+
     // TODO: Asset cache invalidation
     // TODO: Service worker & other nice PWA features
     //  ↳ https://github.com/GoogleChrome/workbox
     //  ↳ https://developers.google.com/web/tools/workbox/
-    // TODO: Add purgecss
     // TODO: Add clean-css
-    // TODO: Add react-snap (as a package.json script NOT here)
 
     // DEVELOPMENT
     !isProduction && browsersync(),
