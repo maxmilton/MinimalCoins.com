@@ -8,7 +8,7 @@
   dependencies:
     "@babel/highlight" "7.0.0-beta.42"
 
-"@babel/core@^7.0.0-beta.41":
+"@babel/core@^7.0.0-beta.41", "@babel/core@^7.0.0-beta.42":
   version "7.0.0-beta.42"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.0.0-beta.42.tgz#b3a838fddbd19663369a0b4892189fd8d3f82001"
   dependencies:
@@ -412,7 +412,7 @@
     "@babel/helper-module-transforms" "7.0.0-beta.42"
     "@babel/helper-plugin-utils" "7.0.0-beta.42"
 
-"@babel/plugin-transform-modules-commonjs@7.0.0-beta.42", "@babel/plugin-transform-modules-commonjs@^7.0.0-beta.41":
+"@babel/plugin-transform-modules-commonjs@7.0.0-beta.42", "@babel/plugin-transform-modules-commonjs@^7.0.0-beta.41", "@babel/plugin-transform-modules-commonjs@^7.0.0-beta.42":
   version "7.0.0-beta.42"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-commonjs/-/plugin-transform-modules-commonjs-7.0.0-beta.42.tgz#bdfb30e194c8841ec3ddd8a011974102d0d74afc"
   dependencies:
@@ -461,7 +461,7 @@
   dependencies:
     regenerator-transform "^0.12.3"
 
-"@babel/plugin-transform-runtime@^7.0.0-beta.41":
+"@babel/plugin-transform-runtime@^7.0.0-beta.41", "@babel/plugin-transform-runtime@^7.0.0-beta.42":
   version "7.0.0-beta.42"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.0.0-beta.42.tgz#0142fa2937dd87fea10f5c7c4da9c8b8896bb740"
   dependencies:
@@ -508,7 +508,7 @@
     "@babel/helper-regex" "7.0.0-beta.42"
     regexpu-core "^4.1.3"
 
-"@babel/preset-env@^7.0.0-beta.41":
+"@babel/preset-env@^7.0.0-beta.41", "@babel/preset-env@^7.0.0-beta.42":
   version "7.0.0-beta.42"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.0.0-beta.42.tgz#671e688057c010b22a7811b965f7da5d79c472d3"
   dependencies:
@@ -552,7 +552,7 @@
     invariant "^2.2.2"
     semver "^5.3.0"
 
-"@babel/preset-stage-2@^7.0.0-beta.41":
+"@babel/preset-stage-2@^7.0.0-beta.41", "@babel/preset-stage-2@^7.0.0-beta.42":
   version "7.0.0-beta.42"
   resolved "https://registry.yarnpkg.com/@babel/preset-stage-2/-/preset-stage-2-7.0.0-beta.42.tgz#42f31bdaa7a1e094989186fa322186c7492f6f9e"
   dependencies:
@@ -576,7 +576,7 @@
     "@babel/plugin-syntax-dynamic-import" "7.0.0-beta.42"
     "@babel/plugin-syntax-import-meta" "7.0.0-beta.42"
 
-"@babel/runtime@^7.0.0-beta.41":
+"@babel/runtime@^7.0.0-beta.41", "@babel/runtime@^7.0.0-beta.42":
   version "7.0.0-beta.42"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.42.tgz#352e40c92e0460d3e82f49bd7e79f6cda76f919f"
   dependencies:
@@ -633,11 +633,15 @@
   version "22.2.0"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.2.0.tgz#55ce83139f7ad1b48b414c3927746614c6963c0f"
 
+"@types/jest@^22.2.2":
+  version "22.2.2"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.2.2.tgz#afe5dacbd00d65325f52da0ed3e76e259629ac9d"
+
 "@types/node@*":
   version "9.4.7"
   resolved "http://registry.npmjs.org/@types/node/-/node-9.4.7.tgz#57d81cd98719df2c9de118f2d5f3b1120dcd7275"
 
-"@types/puppeteer@^1.1.0":
+"@types/puppeteer@^1.1.0", "@types/puppeteer@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-1.2.0.tgz#99f1c05115e98254dacab856851878aba643cbde"
   dependencies:
@@ -676,6 +680,18 @@
     eslint-plugin-jest "^21.15.0"
     eslint-plugin-vue "^4.3.0"
 
+"@wearegenki/eslint-config@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@wearegenki/eslint-config/-/eslint-config-0.6.0.tgz#2cc9bd356f491ab357fa4b7e7bc22b6d16fc558c"
+  dependencies:
+    babel-eslint "^8.2.2"
+    eslint-config-airbnb-base "^12.1.0"
+    eslint-plugin-compat "^2.2.0"
+    eslint-plugin-html "^4.0.2"
+    eslint-plugin-import "^2.9.0"
+    eslint-plugin-jest "^21.15.0"
+    eslint-plugin-vue "^4.4.0"
+
 "@wearegenki/fonts@0.5.0", "@wearegenki/fonts@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@wearegenki/fonts/-/fonts-0.5.0.tgz#e6848b3bd0d73bc0890ba0ecc2d31722a46897bc"
@@ -702,6 +718,28 @@
     postcss-color-function "^4.0.1"
     postcss-conditionals "^3.0.0-beta.0"
     postcss-css-variables "^0.8.0"
+    postcss-custom-media "^6.0.0"
+    postcss-custom-properties "^7.0.0"
+    postcss-debug "0.4.2"
+    postcss-each "^0.10.0"
+    postcss-import "^11.1.0"
+    postcss-load-config "^1.2.0"
+    postcss-mixins "^6.2.0"
+    postcss-nested "^3.0.0"
+    postcss-url "^7.3.1"
+
+"@wearegenki/postcss-config@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@wearegenki/postcss-config/-/postcss-config-0.6.0.tgz#e3dbd0a325cfda30811adaa23ea1832f96ba30cc"
+  dependencies:
+    autoprefixer "^8.2.0"
+    css-mqpacker "^6.0.2"
+    cssstats "^3.2.0"
+    postcss-at-rules-variables "^0.1.4"
+    postcss-calc "^6.0.1"
+    postcss-color-function "^4.0.1"
+    postcss-conditionals "^3.0.0-beta.0"
+    postcss-css-variables "^0.8.1"
     postcss-custom-media "^6.0.0"
     postcss-custom-properties "^7.0.0"
     postcss-debug "0.4.2"
@@ -743,6 +781,29 @@
     portfinder "^1.0.13"
     vue-jest "^2.1.1"
 
+"@wearegenki/test@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@wearegenki/test/-/test-0.6.0.tgz#a1c086c49859fef5098aa778030981ecc8c7c4e1"
+  dependencies:
+    "@babel/core" "^7.0.0-beta.42"
+    "@babel/plugin-transform-modules-commonjs" "^7.0.0-beta.42"
+    "@babel/plugin-transform-runtime" "^7.0.0-beta.42"
+    "@babel/preset-env" "^7.0.0-beta.42"
+    "@babel/preset-stage-2" "^7.0.0-beta.42"
+    "@babel/runtime" "^7.0.0-beta.42"
+    "@types/jest" "^22.2.2"
+    "@types/puppeteer" "^1.2.0"
+    babel-core "^7.0.0-0"
+    babel-jest "^23.0.0-alpha.0"
+    babel-plugin-dynamic-import-node-babel-7 "^2.0.7"
+    chalk "^2.3.2"
+    jest-environment-node "^23.0.0-alpha.0"
+    jest-puppeteer "^2.2.0"
+    node-static "^0.7.10"
+    portfinder "^1.0.13"
+  optionalDependencies:
+    "@wearegenki/ui" "^0.5.2"
+
 "@wearegenki/ui-marko@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@wearegenki/ui-marko/-/ui-marko-0.5.1.tgz#38aae6c01154c9dac88a695b83ea316095b73a70"
@@ -766,7 +827,17 @@
     "@wearegenki/vue-tabs" "^0.5.1"
     "@wearegenki/vue-toasts" "^0.5.1"
 
-"@wearegenki/ui@0.5.2":
+"@wearegenki/ui@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@wearegenki/ui/-/ui-0.6.0.tgz#89cf6488493606122eed97179724ffe49f69e273"
+  dependencies:
+    "@wearegenki/eslint-config" "^0.6.0"
+    "@wearegenki/icons" "^0.5.1"
+    "@wearegenki/postcss-config" "^0.6.0"
+    "@wearegenki/stylelint-config" "^0.5.1"
+    "@wearegenki/test" "^0.6.0"
+
+"@wearegenki/ui@^0.5.2":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@wearegenki/ui/-/ui-0.5.2.tgz#01b56c80febf7b48a23953c41ff458c0405239cc"
   dependencies:
@@ -1164,6 +1235,17 @@ autoprefixer@^8.0.0, autoprefixer@^8.1.0:
     postcss "^6.0.19"
     postcss-value-parser "^3.2.3"
 
+autoprefixer@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-8.2.0.tgz#1e49b611b31a5259b86b7a6b2b1b8faf091abe2a"
+  dependencies:
+    browserslist "^3.2.0"
+    caniuse-lite "^1.0.30000817"
+    normalize-range "^0.1.2"
+    num2fraction "^1.2.2"
+    postcss "^6.0.20"
+    postcss-value-parser "^3.2.3"
+
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
@@ -1257,13 +1339,20 @@ babel-jest@^22.4.3:
     babel-plugin-istanbul "^4.1.5"
     babel-preset-jest "^22.4.3"
 
+babel-jest@^23.0.0-alpha.0:
+  version "23.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-23.0.0-alpha.1.tgz#ecd83afa5ebd759e17548e55cb58d143ca62c63a"
+  dependencies:
+    babel-plugin-istanbul "^4.1.5"
+    babel-preset-jest "^23.0.0-alpha.1"
+
 babel-messages@^6.23.0:
   version "6.23.0"
   resolved "https://registry.yarnpkg.com/babel-messages/-/babel-messages-6.23.0.tgz#f3cdf4703858035b2a2951c6ec5edf6c62f2630e"
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-dynamic-import-node-babel-7@^2.0.6:
+babel-plugin-dynamic-import-node-babel-7@^2.0.6, babel-plugin-dynamic-import-node-babel-7@^2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node-babel-7/-/babel-plugin-dynamic-import-node-babel-7-2.0.7.tgz#e778a8edb17488b472aa058ec451f1e75da4c0ec"
   dependencies:
@@ -1284,6 +1373,10 @@ babel-plugin-jest-hoist@^22.4.1:
 babel-plugin-jest-hoist@^22.4.3:
   version "22.4.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-22.4.3.tgz#7d8bcccadc2667f96a0dcc6afe1891875ee6c14a"
+
+babel-plugin-jest-hoist@^23.0.0-alpha.1:
+  version "23.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-23.0.0-alpha.1.tgz#b22e1008129cac02a63a4a1c274a5835ae61e87e"
 
 babel-plugin-syntax-object-rest-spread@^6.13.0:
   version "6.13.0"
@@ -1317,6 +1410,13 @@ babel-preset-jest@^22.4.3:
   resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-22.4.3.tgz#e92eef9813b7026ab4ca675799f37419b5a44156"
   dependencies:
     babel-plugin-jest-hoist "^22.4.3"
+    babel-plugin-syntax-object-rest-spread "^6.13.0"
+
+babel-preset-jest@^23.0.0-alpha.1:
+  version "23.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-23.0.0-alpha.1.tgz#57ecc8d3ef3186621355eefc72cff53e78920ed5"
+  dependencies:
+    babel-plugin-jest-hoist "^23.0.0-alpha.1"
     babel-plugin-syntax-object-rest-spread "^6.13.0"
 
 babel-register@^6.26.0:
@@ -1600,6 +1700,13 @@ browserslist@^3.0.0, browserslist@^3.1.1:
     caniuse-lite "^1.0.30000815"
     electron-to-chromium "^1.3.39"
 
+browserslist@^3.2.0:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-3.2.2.tgz#ad0559e3982786d80bfb24421ee2318daceffd2c"
+  dependencies:
+    caniuse-lite "^1.0.30000819"
+    electron-to-chromium "^1.3.40"
+
 bs-recipes@1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/bs-recipes/-/bs-recipes-1.3.4.tgz#0d2d4d48a718c8c044769fdc4f89592dc8b69585"
@@ -1718,6 +1825,10 @@ caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639, ca
 caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000810, caniuse-lite@^1.0.30000815:
   version "1.0.30000815"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000815.tgz#3a4258e6850362185adb11b0d754a48402d35bf6"
+
+caniuse-lite@^1.0.30000817, caniuse-lite@^1.0.30000819:
+  version "1.0.30000819"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000819.tgz#aabee5fd15a080febab6ae5d30c9ea15f4c6d4e2"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -2611,6 +2722,10 @@ electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.30, electron-to-chromium@
   version "1.3.39"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.39.tgz#d7a4696409ca0995e2750156da612c221afad84d"
 
+electron-to-chromium@^1.3.40:
+  version "1.3.40"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.40.tgz#1fbd6d97befd72b8a6f921dc38d22413d2f6fddf"
+
 emitter-steward@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/emitter-steward/-/emitter-steward-1.0.0.tgz#f3411ade9758a7565df848b2da0cbbd1b46cbd64"
@@ -2783,6 +2898,12 @@ eslint-plugin-jest@^21.15.0:
 eslint-plugin-vue@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-4.3.0.tgz#478c6267269dbaa20f6e8b2cfae7a0ccc98c1d72"
+  dependencies:
+    vue-eslint-parser "^2.0.3"
+
+eslint-plugin-vue@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-4.4.0.tgz#bfc3a71f76bd0e139313e4425a807257ae42f768"
   dependencies:
     vue-eslint-parser "^2.0.3"
 
@@ -4414,6 +4535,13 @@ jest-environment-node@^22.4.3:
     jest-mock "^22.4.3"
     jest-util "^22.4.3"
 
+jest-environment-node@^23.0.0-alpha.0:
+  version "23.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/jest-environment-node/-/jest-environment-node-23.0.0-alpha.1.tgz#49ed173cc57d77611827bb4dc357e50bcb7aba79"
+  dependencies:
+    jest-mock "^23.0.0-alpha.1"
+    jest-util "^23.0.0-alpha.1"
+
 jest-environment-puppeteer@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/jest-environment-puppeteer/-/jest-environment-puppeteer-2.0.0.tgz#9dfcd2df2bba1d8e39723626f49323b62ec2bdf3"
@@ -4491,6 +4619,16 @@ jest-message-util@^22.4.3:
     slash "^1.0.0"
     stack-utils "^1.0.1"
 
+jest-message-util@^23.0.0-alpha.1:
+  version "23.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/jest-message-util/-/jest-message-util-23.0.0-alpha.1.tgz#40a80945f17ffa11eb759cea4bee25622fd7fa28"
+  dependencies:
+    "@babel/code-frame" "^7.0.0-beta.35"
+    chalk "^2.0.1"
+    micromatch "^2.3.11"
+    slash "^1.0.0"
+    stack-utils "^1.0.1"
+
 jest-mock@^22.2.0:
   version "22.2.0"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-22.2.0.tgz#444b3f9488a7473adae09bc8a77294afded397a7"
@@ -4499,9 +4637,20 @@ jest-mock@^22.4.3:
   version "22.4.3"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-22.4.3.tgz#f63ba2f07a1511772cdc7979733397df770aabc7"
 
+jest-mock@^23.0.0-alpha.1:
+  version "23.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-23.0.0-alpha.1.tgz#11720d649dd5878db129d8f4f73fa4ddfc3da382"
+
 jest-puppeteer-preset@^2.0.1:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/jest-puppeteer-preset/-/jest-puppeteer-preset-2.2.0.tgz#d2f6f8684e13e001f0a864dea7e3d1ec5f147649"
+  dependencies:
+    expect-puppeteer "^2.2.0"
+    jest-environment-puppeteer "^2.0.0"
+
+jest-puppeteer@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/jest-puppeteer/-/jest-puppeteer-2.2.0.tgz#75dd8b852109188b1356f33306a5b7f3ce377162"
   dependencies:
     expect-puppeteer "^2.2.0"
     jest-environment-puppeteer "^2.0.0"
@@ -4606,6 +4755,18 @@ jest-util@^22.4.3:
     graceful-fs "^4.1.11"
     is-ci "^1.0.10"
     jest-message-util "^22.4.3"
+    mkdirp "^0.5.1"
+    source-map "^0.6.0"
+
+jest-util@^23.0.0-alpha.1:
+  version "23.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-23.0.0-alpha.1.tgz#0b87a1110936c516de0cfc66bc69ec4685fecadd"
+  dependencies:
+    callsites "^2.0.0"
+    chalk "^2.0.1"
+    graceful-fs "^4.1.11"
+    is-ci "^1.0.10"
+    jest-message-util "^23.0.0-alpha.1"
     mkdirp "^0.5.1"
     source-map "^0.6.0"
 
@@ -5808,6 +5969,14 @@ postcss-css-variables@^0.8.0:
     extend "^3.0.1"
     postcss "^6.0.8"
 
+postcss-css-variables@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/postcss-css-variables/-/postcss-css-variables-0.8.1.tgz#a52e5ef1a2eb633a8a4f5fc434d6d85d40fe7310"
+  dependencies:
+    escape-string-regexp "^1.0.3"
+    extend "^3.0.1"
+    postcss "^6.0.8"
+
 postcss-custom-media@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/postcss-custom-media/-/postcss-custom-media-6.0.0.tgz#be532784110ecb295044fb5395a18006eb21a737"
@@ -6203,7 +6372,7 @@ postcss@6.0.1:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@6.0.21:
+postcss@6.0.21, postcss@^6.0.20:
   version "6.0.21"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.21.tgz#8265662694eddf9e9a5960db6da33c39e4cd069d"
   dependencies:
