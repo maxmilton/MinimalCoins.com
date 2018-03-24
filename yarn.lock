@@ -644,9 +644,9 @@
     "@types/events" "*"
     "@types/node" "*"
 
-"@wearegenki/css@0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@wearegenki/css/-/css-0.6.1.tgz#cddcd46fddffe6d681ec27276936a43b77515906"
+"@wearegenki/css@0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@wearegenki/css/-/css-0.6.2.tgz#fb24c109f1a5d67cc4dfc6f8db2ae4d13c5af040"
 
 "@wearegenki/eslint-config@^0.6.0":
   version "0.6.0"
@@ -660,13 +660,9 @@
     eslint-plugin-jest "^21.15.0"
     eslint-plugin-vue "^4.4.0"
 
-"@wearegenki/icons@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@wearegenki/icons/-/icons-0.5.1.tgz#0899cd32da1813bb6a0af3400f6006b7a2202eae"
-
-"@wearegenki/postcss-config@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@wearegenki/postcss-config/-/postcss-config-0.6.0.tgz#e3dbd0a325cfda30811adaa23ea1832f96ba30cc"
+"@wearegenki/postcss-config@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@wearegenki/postcss-config/-/postcss-config-0.6.2.tgz#ceb6f594da625f68efde2b96c243d562cd893705"
   dependencies:
     autoprefixer "^8.2.0"
     css-mqpacker "^6.0.2"
@@ -693,9 +689,9 @@
     stylelint-config-standard "^18.2.0"
     stylelint-order "^0.8.1"
 
-"@wearegenki/test@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@wearegenki/test/-/test-0.6.1.tgz#578837b7c16eb0a64a2f2fa7fcece185f53e1892"
+"@wearegenki/test@0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@wearegenki/test/-/test-0.6.2.tgz#4be669936c7ba9729a09e761272b6f296dabef22"
   dependencies:
     "@babel/core" "^7.0.0-beta.42"
     "@babel/plugin-transform-modules-commonjs" "^7.0.0-beta.42"
@@ -714,15 +710,13 @@
     node-static "^0.7.10"
     portfinder "^1.0.13"
 
-"@wearegenki/ui@0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@wearegenki/ui/-/ui-0.6.1.tgz#0c7bfd1236e51ede45f0c00750476caa2195cd0b"
+"@wearegenki/ui@0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@wearegenki/ui/-/ui-0.6.2.tgz#a279ce509a3b85d988809b2c93fa9fc3d0044401"
   dependencies:
     "@wearegenki/eslint-config" "^0.6.0"
-    "@wearegenki/icons" "^0.5.1"
-    "@wearegenki/postcss-config" "^0.6.0"
+    "@wearegenki/postcss-config" "^0.6.2"
     "@wearegenki/stylelint-config" "^0.5.1"
-    "@wearegenki/test" "^0.6.1"
 
 abab@^1.0.4:
   version "1.0.4"

@@ -28,11 +28,12 @@
     "debug:browsers": "yarn autoprefixer --info"
   },
   "dependencies": {
-    "@wearegenki/css": "0.6.1",
+    "@wearegenki/css": "0.6.2",
     "hyperapp": "1.2.5"
   },
   "devDependencies": {
-    "@wearegenki/ui": "0.6.1",
+    "@wearegenki/ui": "0.6.2",
+    "@wearegenki/test": "0.6.2",
     "browser-sync": "2.23.6",
     "codecov": "3.0.0",
     "connect-history-api-fallback": "1.5.0",
