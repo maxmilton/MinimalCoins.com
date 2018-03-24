@@ -1,3 +1,5 @@
+/* eslint-disable max-len */// tslint:disable:max-line-length
+
 import browserSync from 'browser-sync';
 import buble from 'rollup-plugin-buble';
 import commonjs from 'rollup-plugin-commonjs';
@@ -5,7 +7,7 @@ import historyApiFallback from 'connect-history-api-fallback';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import uglify from 'rollup-plugin-uglify';
-import purgecss from 'rollup-plugin-purgecss';
+// import purgecss from 'rollup-plugin-purgecss';
 
 const bs = browserSync.create();
 
