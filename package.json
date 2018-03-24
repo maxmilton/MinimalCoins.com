@@ -28,7 +28,7 @@
     "debug:browsers": "yarn autoprefixer --info"
   },
   "dependencies": {
-    "@wearegenki/css": "0.6.1",
+    "@wearegenki/css": "0.6.2",
     "hyperapp": "1.2.5"
   },
   "devDependencies": {
