@@ -3771,9 +3771,9 @@ https-proxy-agent@^2.1.0:
     agent-base "^4.1.0"
     debug "^3.1.0"
 
-hyperapp@1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/hyperapp/-/hyperapp-1.2.3.tgz#d31b8f7db5dbb5911dad2dd31af7c486eb57ebe0"
+hyperapp@1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/hyperapp/-/hyperapp-1.2.5.tgz#81eab50089413a6c0e85899abc2b9cd23393b9cc"
 
 iconv-lite@0.4.19, iconv-lite@^0.4.17, iconv-lite@~0.4.13:
   version "0.4.19"
