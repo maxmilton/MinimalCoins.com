@@ -6397,7 +6397,7 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-snap@^1.11.5:
+react-snap@1.11.5:
   version "1.11.5"
   resolved "https://registry.yarnpkg.com/react-snap/-/react-snap-1.11.5.tgz#a01325c495009c4f86540e771cff45bf55da5aa4"
   dependencies:
@@ -6904,7 +6904,7 @@ rollup-plugin-postcss@1.4.0:
     rollup-pluginutils "^2.0.1"
     style-inject "^0.3.0"
 
-rollup-plugin-purgecss@^0.20.0:
+rollup-plugin-purgecss@0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-purgecss/-/rollup-plugin-purgecss-0.20.0.tgz#1e9dc299881462905318224f51f50babe2e347e3"
   dependencies:
