@@ -12,7 +12,7 @@ BACKUPS_TO_KEEP=5
 CLOUDFLARE_SITE="minimalcoins.com"
 
 # feedback utilities
-echo_err() { echo -e "\n\033[1;31mError:\033[0m $1" 1>&2; echo -en "\a\n"; }
+echo_err() { echo -e "\n\033[1;31mError:\033[0m $1" 1>&2; echo -en "\a\n"; exit 2; }
 echo_info() { echo -e "\n$1\n" >&1; }
 
 # check we're on the master git branch
