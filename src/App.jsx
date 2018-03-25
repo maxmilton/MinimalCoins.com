@@ -112,34 +112,28 @@ export default (state, actions) => (
     {state.__showInfo && (
       <div>
         <p>
-          Data from{' '}
-          <a
+          Data from <a
             href="https://github.com/binance-exchange/binance-official-api-docs"
             target="_blank"
             rel="noopener"
           >
             Binance
-          </a>{' '}
-          with 1 second updates.
+          </a> with 1 second updates.
         </p>
         <p>
           <sup>*1</sup> Trade volume is the number of trades in the last 24
           hours.
         </p>
         <p>
-          <sup>*2</sup> Based on weighted average in{' '}
-          <abbr title="United States dollar">USD</abbr>.
+          <sup>*2</sup> Based on weighted average in <abbr title="United States dollar">USD</abbr>.
         </p>
       </div>
     )}
 
     <footer class="pa5 mt-auto tc">
-      ©{' '}
-      <a href="https://maxmilton.com" class="inherit">
+      © <a href="https://maxmilton.com" class="inherit">
         Max Milton
-      </a>{' '}
-      |{' '}
-      <a
+      </a> | <a
         href="https://github.com/MaxMilton/MinimalCoins.com"
         class="inherit"
         rel="noopener"
