@@ -92,7 +92,7 @@
       "sortClassName": true
     },
     "source": "dist",
-    "XX__inlineCss": true,
+    "inlineCss": true,
     "skipThirdPartyRequests": true,
     "preconnectThirdParty": false,
     "asyncScriptTags": false
