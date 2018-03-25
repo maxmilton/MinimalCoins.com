@@ -3,3 +3,4 @@ node_modules/
 test/coverage/
 package-lock.json*
 *.log
+deploy.PRIVATE.sh
