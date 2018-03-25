@@ -1,5 +1,6 @@
 #!/bin/bash
-set -E
+set -eo errtrace
+trap 'echo_err "Aborting due to failure."; finish &> /dev/null' ERR
 
 # options (these should be set externally as they're private)
 BUILD_DIR=${BUILD_DIR:-"$(mktemp -d -t build.XXXXXXXXXX)"}
@@ -14,15 +15,22 @@ CLOUDFLARE_SITE="minimalcoins.com"
 echo_err() { echo -e "\n\033[1;31mError:\033[0m $1" 1>&2; echo -en "\a\n"; }
 echo_info() { echo -e "\n$1\n" >&1; }
 
+# check we're on the master git branch
+[[ $(git rev-parse --abbrev-ref HEAD) != "master" ]] && echo_err 'Not on git "master" branch.'
+
+# check linting and tests are passing
+yarn run lint || echo_err "Linting failed"
+yarn run test || echo_err "Running tests suite failed"
+
 # run build
-yarn run build
+yarn run build || echo_err "Build failed"
 
 # bundle deployable package
 echo_info "Creating deployable file..."
 tar -cJf "$BUILD_DIR/$DEPLOY_FILE" ./dist && echo_info "Done; $(wc -c "$BUILD_DIR/$DEPLOY_FILE")"
 
 # upload deploy file to the production server
-echo_info "Uploading package to $REMOTE_SSH server...\n"
+echo_info "Uploading package to $REMOTE_SSH server..."
 upload() {
   rsync --partial --progress --rsh=ssh "$BUILD_DIR/$DEPLOY_FILE" "$REMOTE_SSH":~/
 }
@@ -30,7 +38,7 @@ upload() {
 upload || upload || upload || exit 2
 
 # execute commands on the remote server
-echo_info "Executing commands on $REMOTE_SSH server...\n"
+echo_info "Executing commands on $REMOTE_SSH server..."
 ssh "$REMOTE_SSH" DEPLOY_FILE="$DEPLOY_FILE" REMOTE_DIR="$REMOTE_DIR" BACKUPS_TO_KEEP="$BACKUPS_TO_KEEP" FS_PERMISSIONS="$FS_PERMISSIONS" '/bin/sh -sx' <<'ENDSSH'
   sudo mv ~/$DEPLOY_FILE $REMOTE_DIR
   sudo tar -cJf $REMOTE_DIR/html-backup-$(date --iso-8601=minutes).tar.xz $REMOTE_DIR/html
@@ -42,6 +50,10 @@ ssh "$REMOTE_SSH" DEPLOY_FILE="$DEPLOY_FILE" REMOTE_DIR="$REMOTE_DIR" BACKUPS_TO
   sudo rm -f $REMOTE_DIR/$DEPLOY_FILE
   sudo nginx -t && sudo nginx -s reload
 ENDSSH
+
+# open Cloudflare in a browser to purge the CDN cache
+xdg-open "https://www.cloudflare.com/a/caching/$CLOUDFLARE_SITE"
+echo_info "NOTE: Please purge your CloudFlare cache."
 
 echo_info "Deployment complete!"
 
