@@ -1641,7 +1641,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-clean-css-cli@^4.1.11:
+clean-css-cli@4.1.11:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/clean-css-cli/-/clean-css-cli-4.1.11.tgz#01c5689f05bc512a23285f1defdbde00bc11d86c"
   dependencies:
@@ -6015,7 +6015,7 @@ puppeteer@1.2.0, puppeteer@^1.0.0, puppeteer@^1.2.0:
     rimraf "^2.6.1"
     ws "^3.0.0"
 
-purgecss@^0.21.0:
+purgecss@0.21.0:
   version "0.21.0"
   resolved "https://registry.yarnpkg.com/purgecss/-/purgecss-0.21.0.tgz#64e62668ef11c9bc03d233843ad7006e1dfe578d"
   dependencies:
