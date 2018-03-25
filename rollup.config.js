@@ -7,13 +7,12 @@ import historyApiFallback from 'connect-history-api-fallback';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import uglify from 'rollup-plugin-uglify';
-// import purgecss from 'rollup-plugin-purgecss';
 
 const bs = browserSync.create();
 
-// const isProduction = !process.env.ROLLUP_WATCH;
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production' || !process.env.ROLLUP_WATCH;
 
+// configuration for UglifyJS
 const uglifyOpts = {
   compress: {
     drop_console: isProduction,
@@ -42,6 +41,7 @@ const uglifyOpts = {
   warnings: !!process.env.DEBUG,
 };
 
+// custom browser sync plugin
 function browsersync() {
   if (!bs.active) {
     bs.init({
@@ -50,7 +50,7 @@ function browsersync() {
         directory: true,
         middleware: [historyApiFallback()],
       },
-      port: 1234,
+      port: process.env.PORT || 1234,
       open: false,
       ghostMode: false,
       logConnections: true,
@@ -90,16 +90,12 @@ export default {
 
     // PRODUCTION
     isProduction && uglify(uglifyOpts),
-    // FIXME: PurgeCSS plugin is not working
-    // isProduction && purgecss({
-    //   content: ['index.html'],
-    // }),
 
     // TODO: Asset cache invalidation
-    // TODO: Service worker & other nice PWA features
+
+    // TODO: Service worker & other nice PWA features (necessary?)
     //  ↳ https://github.com/GoogleChrome/workbox
     //  ↳ https://developers.google.com/web/tools/workbox/
-    // TODO: Add clean-css
 
     // DEVELOPMENT
     !isProduction && browsersync(),

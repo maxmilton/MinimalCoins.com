@@ -24,7 +24,9 @@
     "__run": "yarn build && testserver dist",
     "prebuild": "yarn clean && yarn static",
     "build": "APP_RELEASE=$(git describe --always --dirty=\"-dev\") NODE_ENV=production rollup -c",
-    "postbuild": "react-snap",
+    "postbuild": "yarn build:css1 && yarn build:css2 && react-snap",
+    "build:css1": "purgecss --css dist/mc.css --content src/**/*.jsx static/index.html --out dist",
+    "build:css2": "cleancss --debug --source-map -O1 -O2 -o dist/mc.css dist/mc.css",
     "clean": "rm -rf dist && mkdir dist",
     "static": "cp static/* dist/",
     "lint:css": "stylelint --cache --cache-location=/tmp/ \"**/*.{jsx,html,css}\"",
@@ -44,19 +46,20 @@
     "@wearegenki/test": "0.7.0",
     "@wearegenki/ui": "0.7.0",
     "browser-sync": "2.23.6",
+    "clean-css-cli": "^4.1.11",
     "codecov": "3.0.0",
     "connect-history-api-fallback": "1.5.0",
     "eslint": "4.19.1",
     "jest": "22.4.3",
     "postcss": "6.0.21",
     "puppeteer": "1.2.0",
+    "purgecss": "^0.21.0",
     "react-snap": "1.11.5",
     "rollup": "0.57.1",
     "rollup-plugin-buble": "0.19.2",
     "rollup-plugin-commonjs": "9.1.0",
     "rollup-plugin-node-resolve": "3.3.0",
     "rollup-plugin-postcss": "1.4.0",
-    "rollup-plugin-purgecss": "0.20.0",
     "rollup-plugin-uglify": "3.0.0",
     "stylelint": "9.1.3"
   },
@@ -67,8 +70,12 @@
     "minifyHtml": {
       "minifyCSS": {
         "level": {
-          "1": { "all": true },
-          "2": { "all": true }
+          "1": {
+            "all": true
+          },
+          "2": {
+            "all": true
+          }
         }
       },
       "collapseBooleanAttributes": true,
@@ -85,7 +92,7 @@
       "sortClassName": true
     },
     "source": "dist",
-    "inlineCss": true,
+    "XX__inlineCss": true,
     "skipThirdPartyRequests": true,
     "preconnectThirdParty": false,
     "asyncScriptTags": false
