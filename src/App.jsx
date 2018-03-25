@@ -33,51 +33,73 @@ https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-so
 
 import { h } from 'hyperapp'; // eslint-disable-line no-unused-vars
 
-const TickerItem = ({ s, w, p, n }) => ( // eslint-disable-line no-unused-vars
+const InputCount = () => (state, actions) => ( // eslint-disable-line no-unused-vars
+  <input
+    type="number"
+    min="1"
+    max={state.__totalSymbols}
+    value={state.__count}
+    oninput={actions.__setCount}
+  />
+);
+
+const TickerItem = ({ s, w, p }) => ( // eslint-disable-line no-unused-vars
   <tr>
     <td>{s}</td>
     <td class={p > 0 ? 'green' : 'red'}>${w}</td>
-    <td>{n}</td>
   </tr>
 );
 
 export default (state, actions) => (
-  <div class="con">
-    <p>Showing the top 10 cryptocurrencies based on trade volume. Or filter for your prefered currency.</p>
+  <div class="con df f-col pos-a a0">
+    <div class="df middle mt4 mb-auto">
+      <div class="w-50 pa3">
+        Top <InputCount/> cryptocurrencies by trade volume<sup>*1</sup>
+      </div>
 
-    <input
-      type="text"
-      placeholder="Filter by symbol..."
-      value={state.__filter}
-      oninput={actions.__setFilter}
-    />
-    <p>{state.__filter}</p>
+      <div class="w-50 pa3">
+        <input
+          autofocus
+          type="text"
+          placeholder="Filter by symbol..."
+          value={state.__filter}
+          oninput={actions.__setFilter}
+        />
+      </div>
+    </div>
 
-    <table>
-      <thead>
+    <table class="mb4 mh-auto">
+      <thead class="tl">
         <tr>
           <th>Symbol</th>
-          <th>Price<sup>*1</sup></th>
-          <th>Volume<sup>*2</sup></th>
+          <th>Price<sup>*2</sup></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="mono">
         {state.__data.map(data => (
           <TickerItem {...data}/>
         ))}
       </tbody>
     </table>
 
-    <p>Data provided by <a href="https://github.com/binance-exchange/binance-official-api-docs" target="_blank" rel="noopener">Binance</a> with 1 second updates.</p>
-    <p><sup>*1</sup> Based on weighted average in <abbr title="United States dollar">USD</abbr>.</p>
-    <p><sup>*2</sup> Number of trades in the last 24 hours.</p>
+    <button
+      class="h3 btn btn-clear"
+      title={state.__showInfo ? 'hide info' : 'show more info'}
+      onclick={actions.__toggleShowInfo}
+    >
+      {state.__showInfo ? '✖ ✘ 🞬 🞭 🞮' : 'ℹ'}
+    </button>
 
-    <footer class="footer con tc">
+    {state.__showInfo &&
+      <div>
+        <p>Data provided by <a href="https://github.com/binance-exchange/binance-official-api-docs" target="_blank" rel="noopener">Binance</a> with 1 second updates.</p>
+        <p><sup>*1</sup> Trade volume is the number of trades in the last 24 hours.</p>
+        <p><sup>*2</sup> Based on weighted average in <abbr title="United States dollar">USD</abbr>.</p>
+      </div>
+    }
+
+    <footer class="pa5 mt-auto tc">
       © <a href="https://maxmilton.com" class="inherit">Max Milton</a> | <a href="https://github.com/MaxMilton/MinimalCoins.com" class="inherit" rel="noopener">Source on GitHub</a>
     </footer>
-
-    {/* <code>
-      <pre>{JSON.stringify(state.__data, null, 2)}</pre>
-    </code> */}
   </div>
 );

@@ -1,12 +1,14 @@
 @import "@wearegenki/css/src/_variables-colour";
 @import "@wearegenki/css/src/_variables";
-@import "./_variables";
+@import "_variables";
 @import "@wearegenki/css/src";
-/* TODO: Remove if not used */
-@import "@wearegenki/vue-directive-view";
 
-/* ViewHomepage */
+/* App */
 
 .logo {
   font-size: 1.3rem;
+}
+
+footer {
+  color: var(--footer-font-colour);
 }
