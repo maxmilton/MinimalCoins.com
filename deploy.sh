@@ -19,12 +19,12 @@ yarn run build
 
 # bundle deployable package
 echo_info "Creating deployable file..."
-tar -cJf "$BUILD_DIR"/"$DEPLOY_FILE" ./dist && echo_info "Done; $(wc -c "$DEPLOY_FILE")"
+tar -cJf "$BUILD_DIR/$DEPLOY_FILE" ./dist && echo_info "Done; $(wc -c "$BUILD_DIR/$DEPLOY_FILE")"
 
 # upload deploy file to the production server
 echo_info "Uploading package to $REMOTE_SSH server...\n"
 upload() {
-  rsync --partial --progress --rsh=ssh "$DEPLOY_FILE" "$REMOTE_SSH":~/
+  rsync --partial --progress --rsh=ssh "$BUILD_DIR/$DEPLOY_FILE" "$REMOTE_SSH":~/
 }
 # try uploading up to 3 times in case of errors
 upload || upload || upload || exit 2
@@ -37,7 +37,7 @@ ssh "$REMOTE_SSH" DEPLOY_FILE="$DEPLOY_FILE" REMOTE_DIR="$REMOTE_DIR" BACKUPS_TO
   sudo rm -f $(ls -t $REMOTE_DIR/html-backup-* | awk "NR>$BACKUPS_TO_KEEP")
   sudo rm -rf $REMOTE_DIR/html
   sudo tar xJf $REMOTE_DIR/$DEPLOY_FILE -C $REMOTE_DIR
-  sudo mv $REMOTE_DIR/public $REMOTE_DIR/html
+  sudo mv $REMOTE_DIR/dist $REMOTE_DIR/html
   sudo chown -R $FS_PERMISSIONS $REMOTE_DIR/html
   sudo rm -f $REMOTE_DIR/$DEPLOY_FILE
   sudo nginx -t && sudo nginx -s reload
