@@ -5,8 +5,16 @@
 
 /* App */
 
-.logo {
-  font-size: 1.3rem;
+.col-symbol {
+  min-width: 7rem;
+}
+
+.col-price {
+  min-width: 11rem;
+}
+
+.btn-info {
+  font-size: 1.5rem;
 }
 
 footer {

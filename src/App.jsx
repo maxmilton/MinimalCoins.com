@@ -34,13 +34,27 @@ https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-so
 import { h } from 'hyperapp'; // eslint-disable-line no-unused-vars
 
 const InputCount = () => (state, actions) => ( // eslint-disable-line no-unused-vars
-  <input
-    type="number"
-    min="1"
-    max={state.__totalSymbols}
-    value={state.__count}
-    oninput={actions.__setCount}
-  />
+  <div class="input-group">
+    <input
+      type="number"
+      min="1"
+      max={state.__totalSymbols}
+      value={state.__count}
+      oninput={actions.__setCount}
+    />
+    <button
+      class="btn btn-mini br0-i rad0"
+      onclick={actions.__setCountDown}
+    >
+      ➖
+    </button>
+    <button
+      class="btn btn-mini"
+      onclick={actions.__setCountUp}
+    >
+      ➕
+    </button>
+  </div>
 );
 
 const TickerItem = ({ s, w, p }) => ( // eslint-disable-line no-unused-vars
@@ -52,54 +66,86 @@ const TickerItem = ({ s, w, p }) => ( // eslint-disable-line no-unused-vars
 
 export default (state, actions) => (
   <div class="con df f-col pos-a a0">
-    <div class="df middle mt4 mb-auto">
-      <div class="w-50 pa3">
-        Top <InputCount/> cryptocurrencies by trade volume<sup>*1</sup>
+    <p class="mv4 tc">
+      Top cryptocurrencies by trade volume<sup>*1</sup>
+    </p>
+
+    <div class="df middle mb-auto">
+      <div class="pa3">
+        Show <InputCount />
       </div>
 
-      <div class="w-50 pa3">
+      <div class="pa3">
         <input
           autofocus
           type="text"
           placeholder="Filter by symbol..."
           value={state.__filter}
           oninput={actions.__setFilter}
+          onkeyup={actions.__clearFilter}
         />
       </div>
     </div>
 
     <table class="mb4 mh-auto">
-      <thead class="tl">
+      <thead>
         <tr>
-          <th>Symbol</th>
-          <th>Price<sup>*2</sup></th>
+          <th class="col-symbol">Symbol</th>
+          <th class="col-price">
+            Price<sup>*2</sup>
+          </th>
         </tr>
       </thead>
-      <tbody class="mono">
-        {state.__data.map(data => (
-          <TickerItem {...data}/>
-        ))}
+      <tbody class="mono h4">
+        {state.__data.map(data => <TickerItem {...data} />)}
       </tbody>
     </table>
 
     <button
-      class="h3 btn btn-clear"
+      class="btn btn-clear btn-info"
       title={state.__showInfo ? 'hide info' : 'show more info'}
       onclick={actions.__toggleShowInfo}
     >
       {state.__showInfo ? '✖ ✘ 🞬 🞭 🞮' : 'ℹ'}
     </button>
 
-    {state.__showInfo &&
+    {state.__showInfo && (
       <div>
-        <p>Data provided by <a href="https://github.com/binance-exchange/binance-official-api-docs" target="_blank" rel="noopener">Binance</a> with 1 second updates.</p>
-        <p><sup>*1</sup> Trade volume is the number of trades in the last 24 hours.</p>
-        <p><sup>*2</sup> Based on weighted average in <abbr title="United States dollar">USD</abbr>.</p>
+        <p>
+          Data from{' '}
+          <a
+            href="https://github.com/binance-exchange/binance-official-api-docs"
+            target="_blank"
+            rel="noopener"
+          >
+            Binance
+          </a>{' '}
+          with 1 second updates.
+        </p>
+        <p>
+          <sup>*1</sup> Trade volume is the number of trades in the last 24
+          hours.
+        </p>
+        <p>
+          <sup>*2</sup> Based on weighted average in{' '}
+          <abbr title="United States dollar">USD</abbr>.
+        </p>
       </div>
-    }
+    )}
 
     <footer class="pa5 mt-auto tc">
-      © <a href="https://maxmilton.com" class="inherit">Max Milton</a> | <a href="https://github.com/MaxMilton/MinimalCoins.com" class="inherit" rel="noopener">Source on GitHub</a>
+      ©{' '}
+      <a href="https://maxmilton.com" class="inherit">
+        Max Milton
+      </a>{' '}
+      |{' '}
+      <a
+        href="https://github.com/MaxMilton/MinimalCoins.com"
+        class="inherit"
+        rel="noopener"
+      >
+        Source on GitHub
+      </a>
     </footer>
   </div>
 );
