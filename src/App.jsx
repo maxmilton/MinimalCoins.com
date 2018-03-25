@@ -33,7 +33,8 @@ https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-so
 
 import { h } from 'hyperapp'; // eslint-disable-line no-unused-vars
 
-const InputCount = () => (state, actions) => ( // eslint-disable-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
+const InputCount = () => (state, actions) => (
   <div class="input-group">
     <input
       type="number"
@@ -57,17 +58,26 @@ const InputCount = () => (state, actions) => ( // eslint-disable-line no-unused-
   </div>
 );
 
-const TickerItem = ({ s, w, p }) => ( // eslint-disable-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
+const TickerItem = ({ s, w }) => (
   <tr>
     <td>{s}</td>
-    <td class={p > 0 ? 'green' : 'red'}>${w}</td>
+    <td w={w} onupdate={(el, oldAttrs) => {
+      if (w > oldAttrs.w) {
+        el.className = 'green';
+      } else if (w < oldAttrs.w) {
+        el.className = 'red';
+      } else {
+        el.className = '';
+      }
+    }}>${w}</td>
   </tr>
 );
 
 export default (state, actions) => (
   <div class="con df f-col pos-a a0">
-    <p class="mv4 tc">
-      Top cryptocurrencies by trade volume<sup>*1</sup>
+    <p class="mv4 tc alpha">
+      Top cryptocurrencies<sup><abbr title="see info below">*1</abbr></sup> by trade volume<sup><abbr title="see info below">*2</abbr></sup>
     </p>
 
     <div class="df middle mb-auto">
@@ -89,30 +99,22 @@ export default (state, actions) => (
 
     <table class="mb4 mh-auto">
       <thead>
-        <tr>
+        <tr class="alpha">
           <th class="col-symbol">Symbol</th>
           <th class="col-price">
-            Price<sup>*2</sup>
+            Price<sup><abbr title="see info below">*3</abbr></sup>
           </th>
         </tr>
       </thead>
-      <tbody class="mono h4">
+      <tbody class="mono">
         {state.__data.map(data => <TickerItem {...data} />)}
       </tbody>
     </table>
 
-    <button
-      class="btn btn-clear btn-info"
-      title={state.__showInfo ? 'hide info' : 'show more info'}
-      onclick={actions.__toggleShowInfo}
-    >
-      {state.__showInfo ? '✖ ✘ 🞬 🞭 🞮' : 'ℹ'}
-    </button>
-
     {state.__showInfo && (
-      <div>
+      <div id="info">
         <p>
-          Data from <a
+          <sup>*1</sup> Data from <a
             href="https://github.com/binance-exchange/binance-official-api-docs"
             target="_blank"
             rel="noopener"
@@ -121,25 +123,35 @@ export default (state, actions) => (
           </a> with 1 second updates.
         </p>
         <p>
-          <sup>*1</sup> Trade volume is the number of trades in the last 24
+          <sup>*2</sup> Trade volume is the number of trades in the last 24
           hours.
         </p>
         <p>
-          <sup>*2</sup> Based on weighted average in <abbr title="United States dollar">USD</abbr>.
+          <sup>*3</sup> Based on weighted average in <abbr title="United States dollar">USD</abbr>.
         </p>
       </div>
     )}
 
-    <footer class="pa5 mt-auto tc">
-      © <a href="https://maxmilton.com" class="inherit">
-        Max Milton
-      </a> | <a
-        href="https://github.com/MaxMilton/MinimalCoins.com"
-        class="inherit"
-        rel="noopener"
+    <footer class="df middle pa5 mt-auto alpha">
+      <button
+        class="dif middle btn btn-clear btn-info"
+        title={state.__showInfo ? 'hide info' : 'show more info'}
+        onclick={actions.__toggleShowInfo}
       >
-        Source on GitHub
-      </a>
+        {state.__showInfo ? '✖' : 'ℹ'} | info
+      </button>
+
+      <div class="ml-auto">
+        © <a href="https://maxmilton.com" class="inherit">
+          Max Milton
+        </a> | <a
+          href="https://github.com/MaxMilton/MinimalCoins.com"
+          class="inherit"
+          rel="noopener"
+        >
+          Source on GitHub
+        </a>
+      </div>
     </footer>
   </div>
 );

@@ -5,18 +5,26 @@
 
 /* App */
 
+.alpha {
+  opacity: 0.4;
+}
+
 .col-symbol {
-  min-width: 7rem;
+  min-width: 9rem;
 }
 
 .col-price {
-  min-width: 11rem;
+  min-width: 15rem;
+}
+
+tbody {
+  font-size: 1.8rem;
+}
+
+td {
+  padding: 0.1rem 0;
 }
 
 .btn-info {
-  font-size: 1.5rem;
-}
-
-footer {
-  color: var(--footer-font-colour);
+  font-size: 1.3rem;
 }

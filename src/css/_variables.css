@@ -1,8 +1,18 @@
 :root {
-  /* High performance shadows */
+  /**
+   * Framework config
+   */
+
+  /* high performance shadows */
   --use-drop-shadow: true;
 
-  /* Fluid font size */
+  /* fluid font size */
   --use-font-size-fluid: true;
   --container-width-max: 60rem;
+
+  /**
+   * App
+   */
+
+  --info-font-colour: rgba(0, 0, 0, 0.5);
 }

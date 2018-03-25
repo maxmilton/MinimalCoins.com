@@ -4,7 +4,7 @@ module.exports = {
   plugins: {
     '@wearegenki/postcss-config': {
       // mixinsDir: 'src/css/mixins',
-      // verbose: true,
+      verbose: true,
     },
   },
 };

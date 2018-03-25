@@ -36,4 +36,6 @@ export const actions = {
   __setCountUp: () => state => ({ __count: (state.__count += 1) }),
   __setCountDown: () => state => ({ __count: (state.__count -= 1) }),
   __toggleShowInfo: () => state => ({ __showInfo: !state.__showInfo }),
+  // FIXME: Need to follow the anchor link AFTER the element is shown
+  __setShowInfo: () => ({ __showInfo: true }),
 };
