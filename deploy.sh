@@ -33,7 +33,7 @@ tar -cJf "$BUILD_DIR/$DEPLOY_FILE" ./dist && echo_info "Done; $(wc -c "$BUILD_DI
 # upload deploy file to the production server
 echo_info "Uploading package to $REMOTE_SSH server..."
 upload() {
-  rsync --partial --progress --rsh=ssh "$BUILD_DIR/$DEPLOY_FILE" "$REMOTE_SSH":~/
+  rsync -vv --partial --progress --rsh=ssh "$BUILD_DIR/$DEPLOY_FILE" "$REMOTE_SSH":~/
 }
 # try uploading up to 3 times in case of errors
 upload || upload || upload || exit 2
