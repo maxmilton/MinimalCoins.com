@@ -6,7 +6,8 @@ trap 'echo_err "Aborting due to failure."; finish &> /dev/null' ERR
 BUILD_DIR=${BUILD_DIR:-"$(mktemp -d -t build.XXXXXXXXXX)"}
 DEPLOY_FILE=${DEPLOY_FILE:-"deploy.tgz"}
 REMOTE_SSH="${REMOTE_SSH:?Need to set REMOTE_SSH non-empty}"
-REMOTE_DIR="${REMOTE_DIR:?Need to set REMOTE_DIR non-empty}"
+REMOTE_PATH="${REMOTE_PATH:?Need to set REMOTE_PATH non-empty}"
+REMOTE_DIR=${REMOTE_DIR:-"html"}
 FS_PERMISSIONS="${FS_PERMISSIONS:?Need to set FS_PERMISSIONS non-empty}"
 BACKUPS_TO_KEEP=5
 CLOUDFLARE_SITE="minimalcoins.com"
@@ -39,16 +40,17 @@ upload || upload || upload || exit 2
 
 # execute commands on the remote server
 echo_info "Executing commands on $REMOTE_SSH server..."
-ssh "$REMOTE_SSH" DEPLOY_FILE="$DEPLOY_FILE" REMOTE_DIR="$REMOTE_DIR" BACKUPS_TO_KEEP="$BACKUPS_TO_KEEP" FS_PERMISSIONS="$FS_PERMISSIONS" '/bin/sh -sx' <<'ENDSSH'
-  sudo mv ~/$DEPLOY_FILE $REMOTE_DIR
-  sudo tar -cJf $REMOTE_DIR/html-backup-$(date --iso-8601=minutes).tar.xz $REMOTE_DIR/html
-  sudo rm -f $(ls -t $REMOTE_DIR/html-backup-* | awk "NR>$BACKUPS_TO_KEEP")
-  sudo rm -rf $REMOTE_DIR/html
-  sudo tar xJf $REMOTE_DIR/$DEPLOY_FILE -C $REMOTE_DIR
-  sudo mv $REMOTE_DIR/dist $REMOTE_DIR/html
-  sudo chown -R $FS_PERMISSIONS $REMOTE_DIR/html
-  sudo rm -f $REMOTE_DIR/$DEPLOY_FILE
-  sudo nginx -t && sudo nginx -s reload
+ssh "$REMOTE_SSH" DEPLOY_FILE="$DEPLOY_FILE" REMOTE_PATH="$REMOTE_PATH" BACKUPS_TO_KEEP="$BACKUPS_TO_KEEP" FS_PERMISSIONS="$FS_PERMISSIONS" '/bin/sh -sx' <<'ENDSSH'
+  sudo mv ~/$DEPLOY_FILE $REMOTE_PATH
+  sudo tar -cJf $REMOTE_PATH/$REMOTE_DIR-backup-$(date --iso-8601=minutes).tar.xz $REMOTE_PATH/$REMOTE_DIR
+  sudo rm -f $(ls -t $REMOTE_PATH/$REMOTE_DIR-backup-* | awk "NR>$BACKUPS_TO_KEEP")
+  sudo rm -rf $REMOTE_PATH/$REMOTE_DIR
+  sudo tar xJf $REMOTE_PATH/$DEPLOY_FILE -C $REMOTE_PATH
+  sudo mv $REMOTE_PATH/dist $REMOTE_PATH/$REMOTE_DIR
+  sudo chown -R $FS_PERMISSIONS $REMOTE_PATH/$REMOTE_DIR
+  sudo rm -f $REMOTE_PATH/$DEPLOY_FILE
+  # sudo nginx -t && sudo nginx -s reload
+  sudo docker exec nginx nginx -t && sudo docker exec nginx nginx -s reload
 ENDSSH
 
 # open Cloudflare in a browser to purge the CDN cache
