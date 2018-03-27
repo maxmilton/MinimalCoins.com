@@ -40,7 +40,7 @@ upload || upload || upload || exit 2
 
 # execute commands on the remote server
 echo_info "Executing commands on $REMOTE_SSH server..."
-ssh "$REMOTE_SSH" DEPLOY_FILE="$DEPLOY_FILE" REMOTE_PATH="$REMOTE_PATH" BACKUPS_TO_KEEP="$BACKUPS_TO_KEEP" FS_PERMISSIONS="$FS_PERMISSIONS" '/bin/sh -sx' <<'ENDSSH'
+ssh "$REMOTE_SSH" DEPLOY_FILE="$DEPLOY_FILE" REMOTE_PATH="$REMOTE_PATH" REMOTE_DIR="$REMOTE_DIR" BACKUPS_TO_KEEP="$BACKUPS_TO_KEEP" FS_PERMISSIONS="$FS_PERMISSIONS" '/bin/sh -sx' <<'ENDSSH'
   sudo mv ~/$DEPLOY_FILE $REMOTE_PATH
   sudo tar -cJf $REMOTE_PATH/$REMOTE_DIR-backup-$(date --iso-8601=minutes).tar.xz $REMOTE_PATH/$REMOTE_DIR
   sudo rm -f $(ls -t $REMOTE_PATH/$REMOTE_DIR-backup-* | awk "NR>$BACKUPS_TO_KEEP")
