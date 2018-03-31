@@ -644,9 +644,17 @@
     "@types/events" "*"
     "@types/node" "*"
 
-"@wearegenki/css@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@wearegenki/css/-/css-0.7.0.tgz#690f162ef6029f5622250ed5dcc9501e608693e0"
+"@wearegenki/css@0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@wearegenki/css/-/css-0.8.0.tgz#04496a962ca1b66696ab0dad0b47dedff3aece98"
+
+"@wearegenki/dev@0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@wearegenki/dev/-/dev-0.8.0.tgz#a27348b21cc2337a84f50874e6b245076778695a"
+  dependencies:
+    "@wearegenki/eslint-config" "^0.7.0"
+    "@wearegenki/postcss-config" "^0.7.0"
+    "@wearegenki/stylelint-config" "^0.7.0"
 
 "@wearegenki/eslint-config@^0.7.0":
   version "0.7.0"
@@ -689,9 +697,9 @@
     stylelint-config-standard "^18.2.0"
     stylelint-order "^0.8.1"
 
-"@wearegenki/test@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@wearegenki/test/-/test-0.7.0.tgz#3f88824747b0a6fee0f539a0e8728f93f2766bc8"
+"@wearegenki/test@0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@wearegenki/test/-/test-0.8.0.tgz#e9ba503bfa5226b8251a6a2a963f87e06ca087ef"
   dependencies:
     "@babel/core" "^7.0.0-beta.42"
     "@babel/plugin-transform-modules-commonjs" "^7.0.0-beta.42"
@@ -706,17 +714,9 @@
     babel-plugin-dynamic-import-node-babel-7 "^2.0.7"
     chalk "^2.3.2"
     jest-environment-node "^22.4.3"
-    jest-puppeteer "^2.2.0"
+    jest-puppeteer "^2.2.1"
     node-static "^0.7.10"
     portfinder "^1.0.13"
-
-"@wearegenki/ui@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@wearegenki/ui/-/ui-0.7.0.tgz#1588330b6768b556bf43ab2c09d70531d2f23d44"
-  dependencies:
-    "@wearegenki/eslint-config" "^0.7.0"
-    "@wearegenki/postcss-config" "^0.7.0"
-    "@wearegenki/stylelint-config" "^0.7.0"
 
 abab@^1.0.4:
   version "1.0.4"
@@ -2756,9 +2756,9 @@ expand-tilde@^1.2.2:
   dependencies:
     os-homedir "^1.0.1"
 
-expect-puppeteer@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/expect-puppeteer/-/expect-puppeteer-2.2.0.tgz#0a4794e50cafaf4f8e980fbead2c6d5bb16bcbd1"
+expect-puppeteer@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/expect-puppeteer/-/expect-puppeteer-2.2.1.tgz#093d5bd106d05180d08b0e077c1c365d8b2fccf7"
 
 expect@^22.4.3:
   version "22.4.3"
@@ -4248,11 +4248,11 @@ jest-mock@^22.4.3:
   version "22.4.3"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-22.4.3.tgz#f63ba2f07a1511772cdc7979733397df770aabc7"
 
-jest-puppeteer@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/jest-puppeteer/-/jest-puppeteer-2.2.0.tgz#75dd8b852109188b1356f33306a5b7f3ce377162"
+jest-puppeteer@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/jest-puppeteer/-/jest-puppeteer-2.2.1.tgz#1b27eb1f8ea9226e9b48eb2f34caa430af167d7c"
   dependencies:
-    expect-puppeteer "^2.2.0"
+    expect-puppeteer "^2.2.1"
     jest-environment-puppeteer "^2.0.0"
 
 jest-regex-util@^22.4.3:
@@ -6002,7 +6002,7 @@ punycode@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
 
-puppeteer@1.2.0, puppeteer@^1.0.0, puppeteer@^1.2.0:
+puppeteer@1.2.0, puppeteer@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-1.2.0.tgz#6a8a1c618af073dfcf6fc7c7e3c12e54129ffa98"
   dependencies:
@@ -6080,9 +6080,9 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-snap@1.11.5:
-  version "1.11.5"
-  resolved "https://registry.yarnpkg.com/react-snap/-/react-snap-1.11.5.tgz#a01325c495009c4f86540e771cff45bf55da5aa4"
+react-snap@1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/react-snap/-/react-snap-1.12.0.tgz#12dc943b9628df5f65e194c20e86fafe042f2086"
   dependencies:
     clean-css "^4.1.9"
     express "^4.16.1"
@@ -6091,7 +6091,7 @@ react-snap@1.11.5:
     html-minifier "^3.5.5"
     minimalcss "^0.7.3"
     mkdirp "^0.5.1"
-    puppeteer "^1.0.0"
+    puppeteer "^1.2.0"
     serve-static "^1.13.1"
     sourcemapped-stacktrace-node "^2.1.6"
 
@@ -6568,9 +6568,9 @@ rollup-plugin-node-resolve@3.3.0:
     is-module "^1.0.0"
     resolve "^1.1.6"
 
-rollup-plugin-postcss@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-1.4.0.tgz#3ea64f6f9e3d67534f4fcdaab7a56147a917bb30"
+rollup-plugin-postcss@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-1.4.1.tgz#b8c1a0516a43100e1a48d88327bf5631b28a9d8e"
   dependencies:
     chalk "^2.0.0"
     concat-with-sourcemaps "^1.0.5"
