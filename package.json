@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@wearegenki/test": "0.7.0",
-    "@wearegenki/ui": "0.7.0",
+    "@wearegenki/ui": "0.8.0",
     "browser-sync": "2.23.6",
     "clean-css-cli": "4.1.11",
     "codecov": "3.0.0",
