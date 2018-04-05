@@ -644,6 +644,19 @@
     "@types/events" "*"
     "@types/node" "*"
 
+"@vue/component-compiler-utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-1.0.0.tgz#edcb00f656202c95091f07b0fe63a75e69b35614"
+  dependencies:
+    consolidate "^0.15.1"
+    hash-sum "^1.0.2"
+    lru-cache "^4.1.2"
+    postcss "^6.0.20"
+    postcss-selector-parser "^3.1.1"
+    prettier "^1.11.1"
+    source-map "^0.5.6"
+    vue-template-es2015-compiler "^1.6.0"
+
 "@wearegenki/css@0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@wearegenki/css/-/css-0.9.0.tgz#aaa047086ada08816260683e819de0194a8f103a"
@@ -1273,6 +1286,10 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
+bluebird@^3.1.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
+
 body-parser@1.18.2:
   version "1.18.2"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.18.2.tgz#87678a19d84b47d859b83199bd59bce222b10454"
@@ -1850,6 +1867,12 @@ connect@3.5.0:
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
+
+consolidate@^0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/consolidate/-/consolidate-0.15.1.tgz#21ab043235c71a07d45d9aad98593b0dba56bab7"
+  dependencies:
+    bluebird "^3.1.1"
 
 contains-path@^0.1.0:
   version "0.1.0"
@@ -3387,6 +3410,10 @@ has@^1.0.1:
   dependencies:
     function-bind "^1.0.2"
 
+hash-sum@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hash-sum/-/hash-sum-1.0.2.tgz#33b40777754c6432573c120cc3808bbd10d47f04"
+
 hawk@3.1.3, hawk@~3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/hawk/-/hawk-3.1.3.tgz#078444bd7c1640b0fe540d2c9b73d59678e8e1c4"
@@ -4656,7 +4683,7 @@ lower-case@^1.1.1:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-1.1.4.tgz#9a2cabd1b9e8e0ae993a4bf7d5875c39c42e8eac"
 
-lru-cache@^4.0.1:
+lru-cache@^4.0.1, lru-cache@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.2.tgz#45234b2e6e2f2b33da125624c4664929a0224c3f"
   dependencies:
@@ -5906,7 +5933,7 @@ postcss@6.0.1:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@6.0.21, postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.11, postcss@^6.0.13, postcss@^6.0.14, postcss@^6.0.16, postcss@^6.0.18, postcss@^6.0.19, postcss@^6.0.20, postcss@^6.0.6, postcss@^6.0.8, postcss@^6.0.9:
+postcss@6.0.21, postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.11, postcss@^6.0.13, postcss@^6.0.14, postcss@^6.0.16, postcss@^6.0.18, postcss@^6.0.19, postcss@^6.0.20, postcss@^6.0.21, postcss@^6.0.6, postcss@^6.0.8, postcss@^6.0.9:
   version "6.0.21"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.21.tgz#8265662694eddf9e9a5960db6da33c39e4cd069d"
   dependencies:
@@ -5934,6 +5961,10 @@ prepend-http@^1.0.0:
 preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
+
+prettier@^1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.11.1.tgz#61e43fc4cd44e68f2b0dfc2c38cd4bb0fccdcc75"
 
 pretty-format@^22.4.3:
   version "22.4.3"
@@ -6568,17 +6599,18 @@ rollup-plugin-node-resolve@3.3.0:
     is-module "^1.0.0"
     resolve "^1.1.6"
 
-rollup-plugin-postcss@1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-1.4.1.tgz#b8c1a0516a43100e1a48d88327bf5631b28a9d8e"
+rollup-plugin-postcss@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-1.5.1.tgz#c041c25189e961b080644e1209799af355618cc3"
   dependencies:
+    "@vue/component-compiler-utils" "^1.0.0"
     chalk "^2.0.0"
     concat-with-sourcemaps "^1.0.5"
     cssnano "^3.10.0"
     fs-extra "^5.0.0"
     import-cwd "^2.1.0"
     pify "^3.0.0"
-    postcss "^6.0.1"
+    postcss "^6.0.21"
     postcss-load-config "^1.2.0"
     postcss-modules "^1.1.0"
     promise.series "^0.2.0"
@@ -7684,6 +7716,10 @@ vue-eslint-parser@^2.0.3:
     espree "^3.5.2"
     esquery "^1.0.0"
     lodash "^4.17.4"
+
+vue-template-es2015-compiler@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"
