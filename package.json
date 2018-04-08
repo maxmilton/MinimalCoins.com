@@ -43,7 +43,7 @@
     "hyperapp": "1.2.5"
   },
   "devDependencies": {
-    "@wearegenki/dev": "0.9.0",
+    "@wearegenki/dev": "0.10.0",
     "@wearegenki/test": "0.10.0",
     "browser-sync": "2.23.6",
     "clean-css-cli": "4.1.11",
