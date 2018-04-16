@@ -67,6 +67,7 @@
     "node": ">= 9.8.0"
   },
   "reactSnap": {
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
     "minifyHtml": {
       "minifyCSS": {
         "level": {
