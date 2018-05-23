@@ -4,17 +4,18 @@
 [![Coverage status](https://img.shields.io/codecov/c/github/MaxMilton/MinimalCoins.com.svg)](https://codecov.io/gh/MaxMilton/MinimalCoins.com)
 [![Licence](https://img.shields.io/github/license/MaxMilton/MinimalCoins.com.svg)](https://github.com/MaxMilton/MinimalCoins.com/blob/master/LICENCE)
 
-# MinimalCoins.com
+# [MinimalCoins.com](https://minimalcoins.com)
 
-TODO: Write me.
+A simple cryptocurrency ticker site. Still very much a work in progress.
+
+**Technologies:**
+
+- [Hyperapp](https://hyperapp.js.org) JS framework
+- [Minna-ui](https://github.com/WeAreGenki/minna-ui) CSS framework
 
 ## Licence
 
-The [minimalcoins.com](https://minimalcoins.com) site is an MIT licensed open source project. See [LICENCE](https://github.com/MaxMilton/MinimalCoins.com/blob/master/LICENCE).
-
-## Author
-
-Proudly made by Max Milton &lt;<max@wearegenki.com>&gt;.
+[Minimalcoins.com](https://minimalcoins.com) is an MIT licensed open source project. See [LICENCE](https://github.com/MaxMilton/MinimalCoins.com/blob/master/LICENCE).
 
 -----
 
