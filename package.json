@@ -47,7 +47,7 @@
     "@wearegenki/test": "0.10.0",
     "browser-sync": "2.24.2",
     "clean-css-cli": "4.1.11",
-    "codecov": "3.0.1",
+    "codecov": "3.0.2",
     "connect-history-api-fallback": "1.5.0",
     "eslint": "4.19.1",
     "jest": "22.4.3",
