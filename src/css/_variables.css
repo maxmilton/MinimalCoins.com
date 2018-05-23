@@ -1,18 +1,9 @@
 :root {
-  /**
-   * Framework config
-   */
+  /** minna-ui */
 
-  /* high performance shadows */
-  --use-drop-shadow: true;
-
-  /* fluid font size */
   --use-font-size-fluid: true;
-  --container-width-max: 60rem;
 
-  /**
-   * App
-   */
+  /** App */
 
-  --info-font-colour: rgba(0, 0, 0, 0.5);
+  --info-font-colour: hsla(0, 0, 0, 0.5);
 }

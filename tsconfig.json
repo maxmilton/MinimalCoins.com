@@ -2,8 +2,6 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    // "target": "es5",
-    // "module": "es2015",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -22,7 +20,6 @@
     "baseUrl": "."
   },
   "exclude": [
-    ".vscode",
     "dist",
     "node_modules"
   ],

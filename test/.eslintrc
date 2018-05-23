@@ -1,3 +1,5 @@
 {
-  "extends": ["@wearegenki/eslint-config/jest"]
+  "extends": [
+    "@minna-ui/eslint-config/jest"
+  ]
 }
