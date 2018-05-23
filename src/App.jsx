@@ -31,6 +31,12 @@ https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-so
 }
 */
 
+// FIXME: Count +- do not change how many items are displayed (only changes how many update)
+
+// FIXME: UI is not usable; should be more simple/straightforward
+
+// TODO: Add dynamic graph/s
+
 import { h } from 'hyperapp'; // eslint-disable-line no-unused-vars
 
 // eslint-disable-next-line no-unused-vars

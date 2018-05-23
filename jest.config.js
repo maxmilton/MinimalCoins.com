@@ -4,14 +4,18 @@
 
 module.exports = {
   preset: '@minna-ui/jest-config',
-  collectCoverageFrom: ['/src/**/*.{js,jsx}'],
-  // coverageThreshold: {
-  //   global: {
-  //     branches: 0,
-  //     functions: 0,
-  //     lines: 0,
-  //     statements: 0,
-  //   },
-  // },
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+    '^.+\\.css$': '@minna-ui/jest-config/lib/null-transform.js',
+  },
+  moduleFileExtensions: [
+    'js',
+    'jsx',
+  ],
+  setupFiles: ['<rootDir>/test/__setup__.js'],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx}',
+    '!src/index.js',
+  ],
   coverageDirectory: '<rootDir>/test/coverage',
 };
