@@ -80,7 +80,7 @@
     source-map "^0.5.0"
     trim-right "^1.0.1"
 
-"@babel/generator@7.0.0-beta.47":
+"@babel/generator@7.0.0-beta.47", "@babel/generator@^7.0.0-beta.47":
   version "7.0.0-beta.47"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.0.0-beta.47.tgz#1835709f377cc4d2a4affee6d9258a10bbf3b9d1"
   dependencies:
@@ -285,7 +285,7 @@
     invariant "^2.2.0"
     lodash "^4.2.0"
 
-"@babel/traverse@7.0.0-beta.47":
+"@babel/traverse@7.0.0-beta.47", "@babel/traverse@^7.0.0-beta.47":
   version "7.0.0-beta.47"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.0.0-beta.47.tgz#0e57fdbb9ff3a909188b6ebf1e529c641e6c82a4"
   dependencies:
@@ -316,7 +316,7 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@babel/types@7.0.0-beta.47":
+"@babel/types@7.0.0-beta.47", "@babel/types@^7.0.0-beta.47":
   version "7.0.0-beta.47"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-beta.47.tgz#e6fcc1a691459002c2671d558a586706dddaeef8"
   dependencies:
@@ -906,7 +906,7 @@ babylon@7.0.0-beta.44, babylon@^7.0.0-beta.42:
   version "7.0.0-beta.44"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-7.0.0-beta.44.tgz#89159e15e6e30c5096e22d738d8c0af8a0e8ca1d"
 
-babylon@7.0.0-beta.47:
+babylon@7.0.0-beta.47, babylon@^7.0.0-beta.47:
   version "7.0.0-beta.47"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-7.0.0-beta.47.tgz#6d1fa44f0abec41ab7c780481e62fd9aafbdea80"
 
@@ -5001,6 +5001,16 @@ postcss-js@^1.0.1:
     camelcase-css "^1.0.1"
     postcss "^6.0.11"
 
+postcss-jsx@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/postcss-jsx/-/postcss-jsx-0.10.0.tgz#ac85ea4710c12f3d3f6eb56a441975217dcdce13"
+  dependencies:
+    "@babel/generator" "^7.0.0-beta.47"
+    "@babel/traverse" "^7.0.0-beta.47"
+    "@babel/types" "^7.0.0-beta.47"
+    babylon "^7.0.0-beta.47"
+    postcss-styled "^0.10.0"
+
 postcss-less@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/postcss-less/-/postcss-less-1.1.5.tgz#a6f0ce180cf3797eeee1d4adc0e9e6d6db665609"
@@ -5260,6 +5270,10 @@ postcss-sorting@^3.1.0:
   dependencies:
     lodash "^4.17.4"
     postcss "^6.0.13"
+
+postcss-styled@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/postcss-styled/-/postcss-styled-0.10.0.tgz#37abe2957e047d2ca19d575a3168c04775718cbc"
 
 postcss-svgo@^2.1.1:
   version "2.1.6"

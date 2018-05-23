@@ -54,6 +54,7 @@
     "eslint": "4.19.1",
     "jest": "22.4.4",
     "postcss": "6.0.22",
+    "postcss-jsx": "0.10.0",
     "puppeteer": "1.4.0",
     "purgecss": "1.0.0",
     "react-snap": "1.12.2",
@@ -69,12 +70,19 @@
     "node": ">= 9.8.0"
   },
   "reactSnap": {
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
     "minifyHtml": {
       "minifyCSS": {
         "level": {
-          "1": { "all": true },
-          "2": { "all": true }
+          "1": {
+            "all": true
+          },
+          "2": {
+            "all": true
+          }
         }
       },
       "collapseBooleanAttributes": true,
