@@ -55,6 +55,7 @@
     "jest": "22.4.4",
     "postcss": "6.0.22",
     "postcss-jsx": "0.10.0",
+    "postcss-syntax": "^0.9.1",
     "puppeteer": "1.4.0",
     "purgecss": "1.0.0",
     "react-snap": "1.12.2",
