@@ -1,7 +1,7 @@
 {
   "name": "minimalcoinscom",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "A simple cryptocurrency ticker site.",
   "repository": "https://github.com/MaxMilton/MinimalCoins.com",
   "bugs": "https://github.com/MaxMilton/MinimalCoins.com/issues",
