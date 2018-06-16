@@ -100,6 +100,7 @@ function compileHtml(html) {
 const makeHtml = compileHtml(template);
 
 export default [
+  // modern browser bundle
   {
     input: 'src/main.js',
     output: {
@@ -116,12 +117,12 @@ export default [
         },
       }),
       svelte({
-        dev: !isProd,
         preprocess: {
           // only remove whitespace in production; better feedback during development
           ...(isProd ? { markup: preprocessMarkup({ unsafe: true }) } : {}),
           style: preprocessStyle(),
         },
+        dev: !isProd,
         css: (css) => {
           const cssCode = isProd
             ? new CleanCSS(cleanCssOpts).minify(css.code).styles
@@ -130,16 +131,16 @@ export default [
           // compile HTML from template
           writeFile(`${__dirname}/public/index.html`, makeHtml({
             title: 'Minimal Coins',
-            content: `<style>${cssCode}</style><script src=m.js type=module async></script><script src=i.js nomodule async></script>`,
+            content: `<style>${cssCode}</style><script src=m.js type=module async></script><script src=i.js nomodule defer></script>`,
           }).trim(), catchErr);
         },
       }),
       resolve(),
       commonjs(),
-      // buble(),
       isProd && terser(terserOpts),
     ],
   },
+  // legacy browser bundle
   {
     input: 'src/main.js',
     output: {
@@ -156,12 +157,13 @@ export default [
         },
       }),
       svelte({
-        dev: !isProd,
         preprocess: {
           // only remove whitespace in production; better feedback during development
           ...(isProd ? { markup: preprocessMarkup({ unsafe: true }) } : {}),
-          style: () => {}, // noop
+          style: () => ({ code: '/*noop*/' }),
         },
+        dev: false,
+        css: false,
       }),
       resolve(),
       commonjs(),
