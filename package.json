@@ -47,7 +47,8 @@
     "test-ci": "yarn test --coverage --runInBand --ci"
   },
   "dependencies": {
-    "@minna-ui/css": "0.2.0"
+    "@minna-ui/css": "0.2.0",
+    "svelte": "2.7.2"
   },
   "devDependencies": {
     "@minna-ui/eslint-config": "0.2.0",
@@ -70,7 +71,6 @@
     "rollup-plugin-postcss": "1.6.2",
     "rollup-plugin-svelte": "4.1.0",
     "rollup-plugin-terser": "1.0.1",
-    "stylelint": "9.3.0",
-    "svelte": "2.7.2"
+    "stylelint": "9.3.0"
   }
 }

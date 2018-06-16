@@ -1,100 +1,122 @@
-/* eslint-disable max-len */// tslint:disable:max-line-length
-
-import browserSync from 'browser-sync';
-import buble from 'rollup-plugin-buble';
-import commonjs from 'rollup-plugin-commonjs';
-import historyApiFallback from 'connect-history-api-fallback';
-import postcss from 'rollup-plugin-postcss';
+import { readFileSync, writeFile } from 'fs';
+import preprocessMarkup from '@minna-ui/svelte-preprocess-markup';
+import preprocessStyle from '@minna-ui/svelte-preprocess-style';
+import svelte from 'rollup-plugin-svelte';
 import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import buble from 'rollup-plugin-buble';
 import { terser } from 'rollup-plugin-terser';
+// import butternut from 'rollup-plugin-butternut'; // TODO: terser alternative, test differences
+import CleanCSS from 'clean-css'; // eslint-disable-line import/no-extraneous-dependencies
 
-const bs = browserSync.create();
-
-const isProd = process.env.NODE_ENV === 'production' || !process.env.ROLLUP_WATCH;
+const template = readFileSync(`${__dirname}/src/template.html`, 'utf8');
+const isProd = !process.env.ROLLUP_WATCH;
+const nameCache = {};
 
 const terserOpts = {
   compress: {
     drop_console: isProd,
     drop_debugger: isProd,
-    negate_iife: false, // better performance when false
+    negate_iife: false, // better chrome performance when false
     passes: 2,
     pure_getters: true,
     unsafe: true,
+    unsafe_arrows: true,
+    unsafe_comps: true,
+    unsafe_Function: true,
+    unsafe_math: true,
+    unsafe_methods: true,
     unsafe_proto: true,
+    unsafe_regexp: true,
+    unsafe_undefined: true,
+    hoist_funs: true,
   },
   mangle: {
     properties: {
-      // Bad patterns: children, nodeName, pathname, previous
-      regex: /^(__.*|state|actions|attributes|isExact|exact|subscribe|detail|params|render|oncreate|onupdate|onremove|ondestroy)$/,
+      // NOTE: Fragile; needs attention, especially between Svelte releases.
+      regex: /^(_.*|each_value.*|component|changed|previous|destroy|root|fire)$/,
+      // reserved: ['l', 'u', 'q'],
       // debug: 'XX',
     },
+    // reserved: ['l', 'u', 'q'],
   },
   output: {
     comments: !!process.env.DEBUG,
     wrap_iife: true,
   },
+  nameCache,
   ecma: 8,
+  module: true,
   toplevel: true,
   warnings: !!process.env.DEBUG,
 };
 
-// custom browser sync plugin
-function browsersync() {
-  if (!bs.active) {
-    bs.init({
-      server: {
-        baseDir: 'dist',
-        directory: true,
-        middleware: [historyApiFallback()],
-      },
-      port: process.env.PORT || 1234,
-      open: false,
-      ghostMode: false,
-      logConnections: true,
-    });
-  }
+const cleanCssOpts = {
+  level: {
+    1: { all: true },
+    2: { all: true },
+  },
+};
 
-  return {
-    name: 'browsersync',
-    onwrite(bundle) {
-      bs.reload(bundle.dest);
-    },
-  };
+/**
+ * Generic error handler for nodejs callbacks.
+ * @param {Error} err
+ */
+function catchErr(err) { if (err) throw err; }
+
+/**
+ * Ultra-minimal template engine.
+ * @see https://github.com/Drulac/template-literal
+ * @param {string} html A HTML template to compile.
+ * @returns {Function}
+ */
+function compileHtml(html) {
+  return new Function('d', 'return `' + html + '`'); // eslint-disable-line
 }
 
-export default {
-  input: 'src/index.js',
-  experimentalCodeSplitting: true,
-  experimentalDynamicImport: true,
-  output: {
-    file: 'dist/mc.js',
-    name: 'mc',
-    format: 'iife',
-    sourcemap: isProd,
-    interop: false, // saves bytes with externs
+const makeHtml = compileHtml(template);
+
+export default [
+  {
+    input: 'src/main.js',
+    output: {
+      sourcemap: !isProd,
+      format: 'es',
+      name: 'c',
+      file: 'dist/c.js',
+    },
+    plugins: [
+      svelte({
+        dev: !isProd,
+        preprocess: {
+          // only remove whitespace in production; better feedback during development
+          ...(isProd ? { markup: preprocessMarkup({ unsafe: true }) } : {}),
+          style: preprocessStyle(),
+        },
+        css: (css) => {
+          const cssCode = isProd
+            ? new CleanCSS(cleanCssOpts).minify(css.code).styles
+            : css.code;
+
+          // add CSS source map data
+          const cssMap = isProd
+            ? ''
+            : `\n/*# sourceMappingURL=data:application/json;base64,${
+              Buffer.from(JSON.stringify(css.map)).toString('base64')
+            }*/`;
+
+          // compile HTML from template
+          writeFile(`${__dirname}/dist/index.html`, makeHtml({
+            title: 'Minimal Coins',
+            content: `<style>${cssCode}${cssMap}</style><script src=c.js async></script>`,
+          }).trim(), catchErr);
+        },
+      }),
+      resolve(),
+      commonjs(),
+      buble(),
+      isProd && terser(terserOpts),
+      // isProd && butternut({ check: true }), // TODO: terser alternative, test differences
+    ],
   },
-  plugins: [
-    postcss({
-      extract: true,
-      sourceMap: true,
-    }),
-    commonjs(),
-    resolve({
-      jsnext: true,
-      extensions: ['.js', '.jsx', '.json', '.css'],
-    }),
-    buble({ jsx: 'h' }),
-
-    // PRODUCTION
-    isProd && terser(terserOpts),
-
-    // TODO: Asset cache invalidation
-
-    // TODO: Service worker & other nice PWA features (necessary?)
-    //  ↳ https://github.com/GoogleChrome/workbox
-    //  ↳ https://developers.google.com/web/tools/workbox/
-
-    // DEVELOPMENT
-    !isProd && browsersync(),
-  ],
-};
+];

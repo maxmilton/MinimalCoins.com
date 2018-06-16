@@ -2,5 +2,6 @@ dist/
 node_modules/
 test/coverage/
 package-lock.json*
+*.bak
 *.log
 deploy.PRIVATE.sh
