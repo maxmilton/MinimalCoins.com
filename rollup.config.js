@@ -13,10 +13,17 @@ import CleanCSS from 'clean-css';
 
 const template = readFileSync(`${__dirname}/src/template.html`, 'utf8');
 const isProd = !process.env.ROLLUP_WATCH;
-const nameCache = {};
+
+const replaceOpts = {
+  delimiters: ['%', '%'],
+  values: {
+    APP_RELEASE: process.env.APP_RELEASE,
+  },
+};
 
 // NOTE: Fragile; needs attention, especially between Svelte releases.
 const sveltePropRe = /^(_.*|each_value.*|component|changed|previous|destroy|root|fire)$/;
+const nameCache = {};
 
 const terserOpts = {
   compress: {
@@ -34,7 +41,6 @@ const terserOpts = {
     unsafe_proto: true,
     unsafe_regexp: true,
     unsafe_undefined: true,
-    // hoist_funs: true, // sometimes makes compressed output bigger
   },
   mangle: {
     properties: {
@@ -58,7 +64,6 @@ const terserOptsSafe = {
     drop_debugger: isProd,
     passes: 2,
     pure_getters: true,
-    // hoist_funs: true, // sometimes makes compressed output bigger
   },
   mangle: {
     properties: {
@@ -110,12 +115,7 @@ export default [
       file: 'public/m.js',
     },
     plugins: [
-      replace({
-        delimiters: ['%', '%'],
-        values: {
-          APP_RELEASE: process.env.APP_RELEASE,
-        },
-      }),
+      replace(replaceOpts),
       svelte({
         preprocess: {
           // only remove whitespace in production; better feedback during development
@@ -131,7 +131,7 @@ export default [
           // compile HTML from template
           writeFile(`${__dirname}/public/index.html`, makeHtml({
             title: 'Minimal Coins',
-            content: `<style>${cssCode}</style><script src=m.js type=module async></script><script src=i.js nomodule defer></script>`,
+            content: `<style>${cssCode}</style><script src=m.js type=module async></script><script src=l.js nomodule defer></script>`,
           }).trim(), catchErr);
         },
       }),
@@ -146,20 +146,16 @@ export default [
     output: {
       sourcemap: !isProd,
       format: 'iife',
-      name: 'i',
-      file: 'public/i.js',
+      name: 'l',
+      file: 'public/l.js',
     },
     plugins: [
-      replace({
-        delimiters: ['%', '%'],
-        values: {
-          APP_RELEASE: process.env.APP_RELEASE,
-        },
-      }),
+      replace(replaceOpts),
       svelte({
         preprocess: {
           // only remove whitespace in production; better feedback during development
           ...(isProd ? { markup: preprocessMarkup({ unsafe: true }) } : {}),
+          // no need to process CSS again
           style: () => ({ code: '/*noop*/' }),
         },
         dev: false,
@@ -167,7 +163,7 @@ export default [
       }),
       resolve(),
       commonjs(),
-      buble(),
+      buble(), // transpile code for legacy browser environments
       isProd && terser(terserOptsSafe),
     ],
   },
