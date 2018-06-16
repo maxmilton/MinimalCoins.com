@@ -4,5 +4,4 @@
 
 module.exports = {
   preset: '@minna-ui/jest-config',
-  coverageDirectory: '<rootDir>/test/coverage',
 };

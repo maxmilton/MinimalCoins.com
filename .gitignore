@@ -1,7 +1,7 @@
-dist/
-node_modules/
-test/coverage/
-package-lock.json*
+/node_modules/
+/public/
+/test/unit/coverage/
+/deploy.PRIVATE.sh
+/package-lock.json*
 *.bak
 *.log
-deploy.PRIVATE.sh

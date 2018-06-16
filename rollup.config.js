@@ -1,17 +1,22 @@
+// TODO: Remove unused CSS; https://www.purgecss.com/
+
 import { readFileSync, writeFile } from 'fs';
 import preprocessMarkup from '@minna-ui/svelte-preprocess-markup';
 import preprocessStyle from '@minna-ui/svelte-preprocess-style';
+import replace from 'rollup-plugin-replace';
 import svelte from 'rollup-plugin-svelte';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import buble from 'rollup-plugin-buble';
 import { terser } from 'rollup-plugin-terser';
-// import butternut from 'rollup-plugin-butternut'; // TODO: terser alternative, test differences
-import CleanCSS from 'clean-css'; // eslint-disable-line import/no-extraneous-dependencies
+import CleanCSS from 'clean-css';
 
 const template = readFileSync(`${__dirname}/src/template.html`, 'utf8');
 const isProd = !process.env.ROLLUP_WATCH;
 const nameCache = {};
+
+// NOTE: Fragile; needs attention, especially between Svelte releases.
+const sveltePropRe = /^(_.*|each_value.*|component|changed|previous|destroy|root|fire)$/;
 
 const terserOpts = {
   compress: {
@@ -29,16 +34,12 @@ const terserOpts = {
     unsafe_proto: true,
     unsafe_regexp: true,
     unsafe_undefined: true,
-    hoist_funs: true,
+    // hoist_funs: true, // sometimes makes compressed output bigger
   },
   mangle: {
     properties: {
-      // NOTE: Fragile; needs attention, especially between Svelte releases.
-      regex: /^(_.*|each_value.*|component|changed|previous|destroy|root|fire)$/,
-      // reserved: ['l', 'u', 'q'],
-      // debug: 'XX',
+      regex: sveltePropRe,
     },
-    // reserved: ['l', 'u', 'q'],
   },
   output: {
     comments: !!process.env.DEBUG,
@@ -47,6 +48,28 @@ const terserOpts = {
   nameCache,
   ecma: 8,
   module: true,
+  toplevel: true,
+  warnings: !!process.env.DEBUG,
+};
+
+const terserOptsSafe = {
+  compress: {
+    drop_console: isProd,
+    drop_debugger: isProd,
+    passes: 2,
+    pure_getters: true,
+    // hoist_funs: true, // sometimes makes compressed output bigger
+  },
+  mangle: {
+    properties: {
+      regex: sveltePropRe,
+    },
+  },
+  output: {
+    comments: !!process.env.DEBUG,
+  },
+  nameCache,
+  ecma: 5,
   toplevel: true,
   warnings: !!process.env.DEBUG,
 };
@@ -82,10 +105,16 @@ export default [
     output: {
       sourcemap: !isProd,
       format: 'es',
-      name: 'c',
-      file: 'dist/c.js',
+      name: 'm',
+      file: 'public/m.js',
     },
     plugins: [
+      replace({
+        delimiters: ['%', '%'],
+        values: {
+          APP_RELEASE: process.env.APP_RELEASE,
+        },
+      }),
       svelte({
         dev: !isProd,
         preprocess: {
@@ -98,25 +127,46 @@ export default [
             ? new CleanCSS(cleanCssOpts).minify(css.code).styles
             : css.code;
 
-          // add CSS source map data
-          const cssMap = isProd
-            ? ''
-            : `\n/*# sourceMappingURL=data:application/json;base64,${
-              Buffer.from(JSON.stringify(css.map)).toString('base64')
-            }*/`;
-
           // compile HTML from template
-          writeFile(`${__dirname}/dist/index.html`, makeHtml({
+          writeFile(`${__dirname}/public/index.html`, makeHtml({
             title: 'Minimal Coins',
-            content: `<style>${cssCode}${cssMap}</style><script src=c.js async></script>`,
+            content: `<style>${cssCode}</style><script src=m.js type=module async></script><script src=i.js nomodule async></script>`,
           }).trim(), catchErr);
         },
       }),
       resolve(),
       commonjs(),
-      buble(),
+      // buble(),
       isProd && terser(terserOpts),
-      // isProd && butternut({ check: true }), // TODO: terser alternative, test differences
+    ],
+  },
+  {
+    input: 'src/main.js',
+    output: {
+      sourcemap: !isProd,
+      format: 'iife',
+      name: 'i',
+      file: 'public/i.js',
+    },
+    plugins: [
+      replace({
+        delimiters: ['%', '%'],
+        values: {
+          APP_RELEASE: process.env.APP_RELEASE,
+        },
+      }),
+      svelte({
+        dev: !isProd,
+        preprocess: {
+          // only remove whitespace in production; better feedback during development
+          ...(isProd ? { markup: preprocessMarkup({ unsafe: true }) } : {}),
+          style: () => {}, // noop
+        },
+      }),
+      resolve(),
+      commonjs(),
+      buble(),
+      isProd && terser(terserOptsSafe),
     ],
   },
 ];

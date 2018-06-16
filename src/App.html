@@ -1,10 +1,30 @@
-<h1>Hello {$name}!</h1>
-<!-- <Greeting/> -->
+<div class="con">
+  <code><pre>{JSON.stringify(__data, null, 2)}</pre></code>
+</div>
+
+<footer class="tc subtle">
+  v%APP_RELEASE% | <a href="https://github.com/MaxMilton/MinimalCoins.com" class="subtle">source code</a>
+</footer>
 
 <script>
-  // import Greeting from './Greeting.html';
+  export default {
+    data: () => ({
+      __data: [],
+    }),
+    oncreate() {
+      // const socket = new WebSocket('wss://stream.binance.com:9443/ws/!ticker@arr'); // all tickers
+      const socket = new WebSocket('wss://stream.binance.com:9443/ws/trxusdt@ticker'); // tron coin to USD
 
-  // export default {
-  //   components: { Greeting },
-  // };
+      socket.onmessage = (event) => {
+        this.set({ __data: JSON.parse(event.data) });
+      };
+    },
+  };
 </script>
+
+<!-- TODO: Something better than importing the whole @minna-ui/css and using global-->
+<style type="text/postcss" global>
+  @import "@minna-ui/css";
+
+  /* :root {} */
+</style>
