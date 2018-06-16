@@ -9,99 +9,68 @@
   "author": "Max Milton <max@wearegenki.com>",
   "license": "MIT",
   "keywords": [
-    "cryptocurrency",
     "bitcoin",
-    "hyperapp",
+    "cryptocurrency",
+    "maxmilton",
     "minna-ui",
     "postcss",
-    "web-performance",
-    "maxmilton"
+    "svelte",
+    "web-performance"
   ],
   "scripts": {
-    "predev": "yarn clean && yarn static",
-    "dev": "APP_RELEASE=$(git describe --always --dirty=\"-dev\") NODE_ENV=development rollup -c --watch",
-    "run": "OVERRIDE_ENV=development yarn build && serve dist",
-    "__run": "yarn build && serve dist",
-    "prebuild": "yarn clean && yarn static",
-    "build": "APP_RELEASE=$(git describe --always --dirty=\"-dev\") NODE_ENV=production rollup -c",
-    "postbuild": "yarn build:css1 && yarn build:css2 && react-snap",
-    "build:css1": "purgecss --css dist/mc.css --content src/**/*.jsx static/index.html --out dist",
-    "build:css2": "cleancss --debug --source-map -O1 -O2 -o dist/mc.css dist/mc.css",
-    "clean": "rm -rf dist && mkdir dist",
-    "static": "cp static/* dist/",
-    "lint:css": "stylelint --cache --cache-location=/tmp/ \"**/*.{jsx,html,css}\"",
-    "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
+    "XX__predev": "yarn clean && yarn static",
+    "XX__dev": "APP_RELEASE=$(git describe --always --dirty=\"-dev\") NODE_ENV=development rollup -c --watch",
+    "XX__run": "OVERRIDE_ENV=development yarn build && serve dist",
+    "XX____run": "yarn build && serve dist",
+    "XX__prebuild": "yarn clean && yarn static",
+    "XX__build": "APP_RELEASE=$(git describe --always --dirty=\"-dev\") NODE_ENV=production rollup -c",
+    "XX__postbuild": "yarn build:css1 && yarn build:css2 && react-snap",
+    "XX__build:css1": "purgecss --css dist/mc.css --content src/**/*.jsx static/index.html --out dist",
+    "XX__build:css2": "cleancss --debug --source-map -O1 -O2 -o dist/mc.css dist/mc.css",
+    "XX__clean": "rm -rf dist && mkdir dist",
+    "XX__static": "cp static/* dist/",
+    "XX__lint:css": "stylelint --cache --cache-location=/tmp/ \"**/*.{jsx,html,css}\"",
+    "XX__lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
+    "XX__lint": "yarn lint:css && yarn lint:js",
+    "XX__test": "jest",
+    "XX__test-ci": "yarn test --coverage --runInBand --ci",
+    "XX__pretest:watch": "yarn lint",
+    "XX__test:watch": "yarn test --coverage --watch",
+    "XX__debug:browsers": "yarn autoprefixer --info",
+    "=============================================================": "",
+    "dev": "NODE_ENV=development rollup -c --watch",
+    "build": "APP_RELEASE=$(git describe --always --dirty='-dev') NODE_ENV=production rollup -c",
+    "lint:css": "stylelint **/*.{html,css} --cache --cache-location=/tmp/",
+    "lint:js": "eslint --ignore-path .gitignore --ext js,html .",
     "lint": "yarn lint:css && yarn lint:js",
     "test": "jest",
-    "test-ci": "yarn test --coverage --runInBand --ci",
-    "pretest:watch": "yarn lint",
-    "test:watch": "yarn test --coverage --watch",
-    "debug:browsers": "yarn autoprefixer --info"
+    "test-ci": "yarn test --coverage --runInBand --ci"
   },
   "dependencies": {
-    "@minna-ui/css": "0.2.0",
-    "hyperapp": "1.2.6"
+    "@minna-ui/css": "0.2.0"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-jsx": "7.0.0-beta.51",
     "@minna-ui/eslint-config": "0.2.0",
     "@minna-ui/jest-config": "0.2.0",
     "@minna-ui/postcss-config": "0.2.0",
     "@minna-ui/stylelint-config": "0.1.0",
-    "browser-sync": "2.24.4",
+    "@minna-ui/svelte-preprocess-markup": "0.2.0",
+    "@minna-ui/svelte-preprocess-style": "0.2.0",
     "clean-css-cli": "4.1.11",
     "codecov": "3.0.2",
-    "connect-history-api-fallback": "1.5.0",
     "eslint": "4.19.1",
     "jest": "23.1.0",
     "postcss": "6.0.22",
-    "puppeteer": "1.5.0",
     "purgecss": "1.0.1",
-    "react-snap": "1.13.0",
     "rollup": "0.60.7",
     "rollup-plugin-buble": "0.19.2",
+    "rollup-plugin-butternut": "0.1.0",
     "rollup-plugin-commonjs": "9.1.3",
     "rollup-plugin-node-resolve": "3.3.0",
     "rollup-plugin-postcss": "1.6.2",
+    "rollup-plugin-svelte": "4.1.0",
     "rollup-plugin-terser": "1.0.1",
-    "stylelint": "9.3.0"
-  },
-  "engines": {
-    "node": ">= 9.8.0"
-  },
-  "reactSnap": {
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ],
-    "minifyHtml": {
-      "minifyCSS": {
-        "level": {
-          "1": {
-            "all": true
-          },
-          "2": {
-            "all": true
-          }
-        }
-      },
-      "collapseBooleanAttributes": true,
-      "collapseWhitespace": true,
-      "decodeEntities": true,
-      "keepClosingSlash": true,
-      "removeAttributeQuotes": true,
-      "removeComments": true,
-      "removeEmptyAttributes": true,
-      "removeRedundantAttributes": true,
-      "removeScriptTypeAttributes": true,
-      "removeStyleLinkTypeAttributes": true,
-      "sortAttributes": true,
-      "sortClassName": true
-    },
-    "source": "dist",
-    "inlineCss": true,
-    "skipThirdPartyRequests": true,
-    "preconnectThirdParty": false,
-    "asyncScriptTags": false
+    "stylelint": "9.3.0",
+    "svelte": "2.7.2"
   }
 }

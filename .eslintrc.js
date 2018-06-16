@@ -7,16 +7,4 @@ module.exports = {
   extends: [
     '@minna-ui/eslint-config',
   ],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  rules: {
-    'function-paren-newline': ['error', 'consistent'],
-    'no-param-reassign': ['error', { ignorePropertyModificationsFor: [
-      'el',
-      'state',
-    ]}],
-  },
 };

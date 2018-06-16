@@ -10,12 +10,12 @@ A simple cryptocurrency ticker site. Still very much a work in progress.
 
 **Technologies:**
 
-- [Hyperapp](https://hyperapp.js.org) JS framework
-- [Minna-ui](https://github.com/WeAreGenki/minna-ui) CSS framework
+- [Svelte](https://svelte.technology) JS framework
+- [Minna-ui](https://github.com/WeAreGenki/minna-ui) UI framework
 
 ## Licence
 
-[Minimalcoins.com](https://minimalcoins.com) is an MIT licensed open source project. See [LICENCE](https://github.com/MaxMilton/MinimalCoins.com/blob/master/LICENCE).
+[MinimalCoins.com](https://minimalcoins.com) is an MIT licensed open source project. See [LICENCE](https://github.com/MaxMilton/MinimalCoins.com/blob/master/LICENCE).
 
 -----
 

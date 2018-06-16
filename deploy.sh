@@ -1,8 +1,9 @@
 #!/bin/bash
-set -eo errtrace
+set -euo pipefail
+IFS=$'\n\t'
 trap 'echo_err "Aborting due to failure."; finish &> /dev/null' ERR
 
-# options (these should be set externally as they're private)
+# options (private; set externally)
 BUILD_DIR="${BUILD_DIR:-$(mktemp -d -t build.XXXXXXXXXX)}"
 DEPLOY_FILE="${DEPLOY_FILE:-deploy.tgz}"
 REMOTE_SSH="${REMOTE_SSH:?Need to set REMOTE_SSH non-empty}"

@@ -8,9 +8,6 @@
     "allowJs": true,
     "checkJs": true,
 
-    "jsx": "react",
-    "jsxFactory": "h",
-
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
