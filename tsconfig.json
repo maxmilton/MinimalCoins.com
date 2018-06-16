@@ -17,7 +17,7 @@
     "baseUrl": "."
   },
   "exclude": [
-    "dist",
+    "public",
     "node_modules"
   ],
   "typeAcquisition": {

@@ -29,7 +29,7 @@ yarn run build || echo_err "Build failed"
 
 # bundle deployable package
 echo_info 'Creating deployable file...'
-tar -cJf "$BUILD_DIR"/"$DEPLOY_FILE" ./dist && echo_info "Done; $(wc -c "$BUILD_DIR"/"$DEPLOY_FILE")"
+tar -cJf "$BUILD_DIR"/"$DEPLOY_FILE" ./public && echo_info "Done; $(wc -c "$BUILD_DIR"/"$DEPLOY_FILE")"
 
 # upload deploy file to the production server
 echo_info "Uploading package to ${REMOTE_SSH} server..."
@@ -48,7 +48,7 @@ ssh "$REMOTE_SSH" DEPLOY_FILE="$DEPLOY_FILE" REMOTE_PATH="$REMOTE_PATH" REMOTE_D
   sudo rm -f $(ls -t "$REMOTE_PATH"/"$REMOTE_DIR"-backup-* | awk "NR>$BACKUPS_TO_KEEP")
   sudo rm -rf "$REMOTE_PATH"/"$REMOTE_DIR"
   sudo tar xJf "$REMOTE_PATH"/"$DEPLOY_FILE" -C "$REMOTE_PATH"
-  sudo mv "$REMOTE_PATH"/dist "$REMOTE_PATH"/"$REMOTE_DIR"
+  sudo mv "$REMOTE_PATH"/public "$REMOTE_PATH"/"$REMOTE_DIR"
   sudo chown -R $FS_PERMISSIONS "$REMOTE_PATH"/"$REMOTE_DIR"
   sudo rm -f "$REMOTE_PATH"/"$DEPLOY_FILE"
   # sudo nginx -t && sudo nginx -s reload
