@@ -1,5 +1,44 @@
 <div class="con">
-  <code><pre>{JSON.stringify(__data, null, 2)}</pre></code>
+  <h2>24 hr stats</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>{ __data.s }</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Weighted average price</td>
+        <td>${ __data.w }</td>
+      </tr>
+      <tr>
+        <td>Best bid price</td>
+        <td>${ __data.b }</td>
+      </tr>
+      <tr>
+        <td>Best ask price</td>
+        <td>${ __data.a }</td>
+      </tr>
+      <tr>
+        <td>Open price</td>
+        <td>${ __data.o }</td>
+      </tr>
+      <tr>
+        <td>High price</td>
+        <td>${ __data.h }</td>
+      </tr>
+      <tr>
+        <td>Low price</td>
+        <td>${ __data.l }</td>
+      </tr>
+      <tr>
+        <td>Total number of trades</td>
+        <td>{ __data.n }</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <footer class="footer tc">
@@ -24,7 +63,47 @@
 
 <!-- TODO: Something better than importing the whole @minna-ui/css and using global-->
 <style type="text/postcss" global>
-  @import "@minna-ui/css";
+  @import "@minna-ui/css/src";
 
   /* :root {} */
+
+  dt {
+    margin-top: 1rem;
+  }
+
+  dd {
+    font-family: monospace;
+    font-size: 130%;
+  }
 </style>
+
+<!--
+  Binance API reference:
+  https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-socket-streams.md
+
+  {
+    "e": "24hrTicker",  // Event type
+    "E": 123456789,     // Event time
+    "s": "BNBBTC",      // Symbol
+    "p": "0.0015",      // Price change
+    "P": "250.00",      // Price change percent
+    "w": "0.0018",      // Weighted average price
+    "x": "0.0009",      // Previous day's close price
+    "c": "0.0025",      // Current day's close price
+    "Q": "10",          // Close trade's quantity
+    "b": "0.0024",      // Best bid price
+    "B": "10",          // Bid bid quantity
+    "a": "0.0026",      // Best ask price
+    "A": "100",         // Best ask quantity
+    "o": "0.0010",      // Open price
+    "h": "0.0025",      // High price
+    "l": "0.0010",      // Low price
+    "v": "10000",       // Total traded base asset volume
+    "q": "18",          // Total traded quote asset volume
+    "O": 0,             // Statistics open time
+    "C": 86400000,      // Statistics close time
+    "F": 0,             // First trade ID
+    "L": 18150,         // Last trade Id
+    "n": 18151          // Total number of trades
+  }
+-->
