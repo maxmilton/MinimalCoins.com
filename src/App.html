@@ -1,42 +1,32 @@
 <div class="con">
-  <h2>24 hr stats</h2>
+  <!-- <h2>24 hr stats</h2> -->
 
   <table>
     <thead>
       <tr>
-        <th></th>
-        <th>{ __data.s }</th>
+        <th>Symbol</th>
+        <th>Weighted avg. price</th>
+        <th>Best bid price</th>
+        <th>Best ask price</th>
+        <th>Open price</th>
+        <th>High price</th>
+        <th>Low price</th>
+        <th># of trades</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>Weighted average price</td>
-        <td>${ __data.w }</td>
-      </tr>
-      <tr>
-        <td>Best bid price</td>
-        <td>${ __data.b }</td>
-      </tr>
-      <tr>
-        <td>Best ask price</td>
-        <td>${ __data.a }</td>
-      </tr>
-      <tr>
-        <td>Open price</td>
-        <td>${ __data.o }</td>
-      </tr>
-      <tr>
-        <td>High price</td>
-        <td>${ __data.h }</td>
-      </tr>
-      <tr>
-        <td>Low price</td>
-        <td>${ __data.l }</td>
-      </tr>
-      <tr>
-        <td>Total number of trades</td>
-        <td>{ __data.n }</td>
-      </tr>
+    <tbody class="mono">
+      {#each __data as item}
+        <tr>
+          <td>{ item.s }</td>
+          <td>${ item.w }</td>
+          <td>${ item.b }</td>
+          <td>${ item.a }</td>
+          <td>${ item.o }</td>
+          <td>${ item.h }</td>
+          <td>${ item.l }</td>
+          <td>{ item.n }</td>
+        </tr>
+      {/each}
     </tbody>
   </table>
 </div>
@@ -51,11 +41,16 @@
       __data: [],
     }),
     oncreate() {
-      // const socket = new WebSocket('wss://stream.binance.com:9443/ws/!ticker@arr'); // all tickers
-      const socket = new WebSocket('wss://stream.binance.com:9443/ws/trxusdt@ticker'); // tron coin to USD
+      const socket = new WebSocket('wss://stream.binance.com:9443/ws/!ticker@arr'); // all tickers
 
       socket.onmessage = (event) => {
-        this.set({ __data: JSON.parse(event.data) });
+        this.set({
+          // FIXME: This isn't the right approach for merging arrays (with de-dup)
+          __data: Object.assign(
+            this.get().__data,
+            JSON.parse(event.data)
+          ).sort((a, b) => b.n - a.n),
+        });
       };
     },
   };
