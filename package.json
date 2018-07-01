@@ -47,7 +47,7 @@
     "@minna-ui/eslint-config": "0.2.0",
     "@minna-ui/jest-config": "0.2.0",
     "@minna-ui/postcss-config": "0.2.0",
-    "@minna-ui/stylelint-config": "0.1.0",
+    "@minna-ui/stylelint-config": "0.3.0",
     "browser-sync": "2.24.5",
     "clean-css-cli": "4.1.11",
     "codecov": "3.0.2",
