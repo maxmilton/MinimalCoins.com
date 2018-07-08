@@ -43,7 +43,7 @@
     "hyperapp": "1.2.6"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-jsx": "7.0.0-beta.51",
+    "@babel/plugin-transform-react-jsx": "7.0.0-beta.52",
     "@minna-ui/eslint-config": "0.2.0",
     "@minna-ui/jest-config": "0.2.0",
     "@minna-ui/postcss-config": "0.2.0",
