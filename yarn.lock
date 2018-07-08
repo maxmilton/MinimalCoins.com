@@ -54,11 +54,11 @@
     source-map "^0.5.0"
     trim-right "^1.0.1"
 
-"@babel/helper-builder-react-jsx@7.0.0-beta.51":
-  version "7.0.0-beta.51"
-  resolved "https://registry.yarnpkg.com/@babel/helper-builder-react-jsx/-/helper-builder-react-jsx-7.0.0-beta.51.tgz#86c72d6683bd2597c938a12153a6e480bf140128"
+"@babel/helper-builder-react-jsx@7.0.0-beta.52":
+  version "7.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@babel/helper-builder-react-jsx/-/helper-builder-react-jsx-7.0.0-beta.52.tgz#64f6a9148807747c2ef408f044bdfa16155faf57"
   dependencies:
-    "@babel/types" "7.0.0-beta.51"
+    "@babel/types" "7.0.0-beta.52"
     esutils "^2.0.0"
 
 "@babel/helper-function-name@7.0.0-beta.44":
@@ -111,6 +111,10 @@
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.0.0-beta.51.tgz#0f6a5f2b6d1c6444413f8fab60940d79b63c2031"
 
+"@babel/helper-plugin-utils@7.0.0-beta.52":
+  version "7.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.0.0-beta.52.tgz#2f058c5f7c3a5fe4bc219036b2e78e11bddeb7ad"
+
 "@babel/helper-simple-access@7.0.0-beta.51":
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/helper-simple-access/-/helper-simple-access-7.0.0-beta.51.tgz#c9d7fecd84a181d50a3afcc422fc94a968be3050"
@@ -159,11 +163,11 @@
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.51.tgz#27cec2df409df60af58270ed8f6aa55409ea86f6"
 
-"@babel/plugin-syntax-jsx@7.0.0-beta.51":
-  version "7.0.0-beta.51"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.0.0-beta.51.tgz#f672a3371c6ba3fe53bffd2e8ab5dc40495382cf"
+"@babel/plugin-syntax-jsx@7.0.0-beta.52":
+  version "7.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.0.0-beta.52.tgz#ed57b2ca5ab5bcf931c419b111e8df0318f8f65e"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.51"
+    "@babel/helper-plugin-utils" "7.0.0-beta.52"
 
 "@babel/plugin-transform-modules-commonjs@^7.0.0-beta.51":
   version "7.0.0-beta.51"
@@ -173,13 +177,13 @@
     "@babel/helper-plugin-utils" "7.0.0-beta.51"
     "@babel/helper-simple-access" "7.0.0-beta.51"
 
-"@babel/plugin-transform-react-jsx@7.0.0-beta.51":
-  version "7.0.0-beta.51"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.0.0-beta.51.tgz#7af8498518b83906405438370198808ca6e63b10"
+"@babel/plugin-transform-react-jsx@7.0.0-beta.52":
+  version "7.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.0.0-beta.52.tgz#658e49cb6f8fa35ed7391fae155c842c7a12555b"
   dependencies:
-    "@babel/helper-builder-react-jsx" "7.0.0-beta.51"
-    "@babel/helper-plugin-utils" "7.0.0-beta.51"
-    "@babel/plugin-syntax-jsx" "7.0.0-beta.51"
+    "@babel/helper-builder-react-jsx" "7.0.0-beta.52"
+    "@babel/helper-plugin-utils" "7.0.0-beta.52"
+    "@babel/plugin-syntax-jsx" "7.0.0-beta.52"
 
 "@babel/template@7.0.0-beta.44":
   version "7.0.0-beta.44"
@@ -240,6 +244,14 @@
 "@babel/types@7.0.0-beta.51":
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-beta.51.tgz#d802b7b543b5836c778aa691797abf00f3d97ea9"
+  dependencies:
+    esutils "^2.0.2"
+    lodash "^4.17.5"
+    to-fast-properties "^2.0.0"
+
+"@babel/types@7.0.0-beta.52":
+  version "7.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-beta.52.tgz#a3e5620b1534b253a50abcf2222b520e23b16da2"
   dependencies:
     esutils "^2.0.2"
     lodash "^4.17.5"
