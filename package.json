@@ -39,7 +39,7 @@
     "debug:browsers": "yarn autoprefixer --info"
   },
   "dependencies": {
-    "@minna-ui/css": "0.3.0",
+    "@minna-ui/css": "0.24.0",
     "hyperapp": "1.2.6"
   },
   "devDependencies": {
