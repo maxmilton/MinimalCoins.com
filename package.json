@@ -51,7 +51,7 @@
     "browser-sync": "2.24.5",
     "clean-css-cli": "4.1.11",
     "codecov": "3.0.3",
-    "connect-history-api-fallback": "1.5.0",
+    "connect-history-api-fallback": "1.6.0",
     "eslint": "4.19.1",
     "jest": "23.1.0",
     "postcss": "6.0.22",
