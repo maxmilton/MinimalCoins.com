@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@minna-ui/css": "0.3.0",
-    "hyperapp": "1.2.6"
+    "hyperapp": "1.2.10"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "7.0.0-beta.52",
