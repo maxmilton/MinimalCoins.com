@@ -55,7 +55,7 @@
     "eslint": "4.19.1",
     "jest": "23.1.0",
     "postcss": "6.0.22",
-    "puppeteer": "1.5.0",
+    "puppeteer": "1.18.0",
     "purgecss": "1.0.1",
     "react-snap": "1.14.0",
     "rollup": "0.60.7",
